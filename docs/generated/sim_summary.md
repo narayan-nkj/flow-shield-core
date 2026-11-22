@@ -1,6 +1,6 @@
 # CHAKRA-DPI Synthetic Ledger Generation Summary
 
-**Generation Timestamp:** 2026-11-22T12:17:41.865084+00:00
+**Generation Timestamp:** 2026-11-22T14:08:44.042874+00:00
 **Random Seed:** `42`
 **Simulated Time Horizon:** `7` days (2026-11-15 to 2026-11-22)
 
@@ -8,54 +8,75 @@
 
 ## 1. Account Distribution & Demographics
 
-* **Total Accounts Instantiated:** 5,005
-* **Cold-Start Accounts (< 14 days):** 278 (5.6%)
+* **Total Accounts Instantiated:** 1,005
+* **Cold-Start Accounts (< 14 days):** 66 (6.6%)
 
 | Bank Identifier | Status | Total Accounts | Retail | Kirana Merchant | Student | Nodal / Clearing |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `BANK_A` | Participating | 1,001 | 837 | 104 | 44 | 16 |
-| `BANK_B` | Participating | 1,001 | 841 | 103 | 48 | 9 |
-| `BANK_C` | Participating | 1,001 | 844 | 111 | 40 | 6 |
-| `BANK_D` | Unjoined / External | 1,001 | 844 | 100 | 48 | 9 |
-| `BANK_E` | Unjoined / External | 1,001 | 870 | 96 | 25 | 10 |
+| `BANK_A` | Participating | 201 | 168 | 22 | 6 | 5 |
+| `BANK_B` | Participating | 201 | 161 | 27 | 10 | 3 |
+| `BANK_C` | Participating | 201 | 171 | 18 | 10 | 2 |
+| `BANK_D` | Unjoined / External | 201 | 168 | 22 | 9 | 2 |
+| `BANK_E` | Unjoined / External | 201 | 178 | 15 | 5 | 3 |
 
 ---
 
 ## 2. Transaction Dynamics & Velocity
 
-* **Total Transactions Generated:** 28,155
-* **Total Transaction Volume:** INR 91,030,262.98
-* **Cross-Bank Inter-Institutional Transactions:** 15,869 (56.4%)
-* **Intra-Bank Domestic Transactions:** 12,286 (43.6%)
+* **Total Transactions Generated:** 22,692
+* **Total Transaction Volume:** INR 39,496,154.06
+* **Cross-Bank Inter-Institutional Transactions:** 16,874 (74.4%)
+* **Intra-Bank Domestic Transactions:** 5,818 (25.6%)
 
 ### Transaction Volume by Payment Channel
 | Channel | Transaction Count | Share (%) | Volume (INR) |
 | :--- | :--- | :--- | :--- |
-| `UPI` | 25,378 | 90.1% | INR 29,438,739.18 |
-| `IMPS` | 2,776 | 9.9% | INR 61,451,516.23 |
-| `RTGS` | 1 | 0.0% | INR 140,007.57 |
+| `UPI` | 22,115 | 97.5% | INR 17,526,961.19 |
+| `IMPS` | 563 | 2.5% | INR 16,331,194.05 |
+| `RTGS` | 14 | 0.1% | INR 5,637,998.82 |
 
 ### Transaction Breakdown by Behavioral Scenario
 | Scenario Archetype | Count | Share (%) | Description |
 | :--- | :--- | :--- | :--- |
-| `normal_merchant_payment` | 13,103 | 46.5% | Normal synthetic activity flow |
-| `normal_retail_p2p` | 10,590 | 37.6% | Normal synthetic activity flow |
-| `normal_salary_inflow` | 1,690 | 6.0% | Normal synthetic activity flow |
-| `normal_bill_payment` | 1,465 | 5.2% | Normal synthetic activity flow |
-| `normal_student_transfer` | 1,102 | 3.9% | Normal synthetic activity flow |
-| `normal_student_allowance` | 205 | 0.7% | Normal synthetic activity flow |
+| `durga_puja_merchant_surge` | 15,937 | 70.2% | Normal synthetic activity flow |
+| `normal_merchant_payment` | 2,513 | 11.1% | Normal synthetic activity flow |
+| `normal_retail_p2p` | 2,019 | 8.9% | Normal synthetic activity flow |
+| `warm_up_merchant_payment` | 749 | 3.3% | Normal synthetic activity flow |
+| `warm_up_p2p` | 520 | 2.3% | Normal synthetic activity flow |
+| `normal_salary_inflow` | 327 | 1.4% | Normal synthetic activity flow |
+| `normal_bill_payment` | 257 | 1.1% | Normal synthetic activity flow |
+| `normal_student_transfer` | 226 | 1.0% | Normal synthetic activity flow |
+| `normal_student_allowance` | 35 | 0.2% | Normal synthetic activity flow |
+| `student_fee_parent_inflow` | 25 | 0.1% | Normal synthetic activity flow |
+| `student_fee_university_outflow` | 25 | 0.1% | Normal synthetic activity flow |
+| `smurfing_fan_out_hop` | 15 | 0.1% | Normal synthetic activity flow |
+| `dormant_awakening_dispersal` | 15 | 0.1% | Normal synthetic activity flow |
+| `concentrator_fan_in_feeder` | 12 | 0.1% | Normal synthetic activity flow |
+| `dormant_awakening_inflow` | 5 | 0.0% | Normal synthetic activity flow |
+| `smurfing_fan_out_funding_inflow` | 1 | 0.0% | Normal synthetic activity flow |
+| `innocent_kirana_victim_payment` | 1 | 0.0% | Normal synthetic activity flow |
+| `konnagar_scam_hop_1` | 1 | 0.0% | Normal synthetic activity flow |
+| `konnagar_scam_hop_2` | 1 | 0.0% | Normal synthetic activity flow |
+| `konnagar_scam_hop_3` | 1 | 0.0% | Normal synthetic activity flow |
+| `konnagar_scam_hop_4` | 1 | 0.0% | Normal synthetic activity flow |
+| `konnagar_scam_exit_BANK_D` | 1 | 0.0% | Normal synthetic activity flow |
+| `concentrator_onward_sweep_outflow` | 1 | 0.0% | Normal synthetic activity flow |
+| `unjoined_leakage_hop_1` | 1 | 0.0% | Normal synthetic activity flow |
+| `unjoined_leakage_hop_2` | 1 | 0.0% | Normal synthetic activity flow |
+| `unjoined_leakage_hop_3` | 1 | 0.0% | Normal synthetic activity flow |
+| `unjoined_leakage_exit_BANK_E` | 1 | 0.0% | Normal synthetic activity flow |
 
 ### Amount Percentiles (INR)
 | Percentile | Value (INR) |
 | :--- | :--- |
-| **p10** | INR 158.27 |
-| **p25** | INR 295.93 |
-| **p50 (Median)** | INR 663.56 |
-| **p75** | INR 1,762.17 |
-| **p90** | INR 4,283.53 |
-| **p95** | INR 22,423.96 |
-| **p99** | INR 48,093.90 |
-| **Max** | INR 140,007.57 |
+| **p10** | INR 183.10 |
+| **p25** | INR 296.22 |
+| **p50 (Median)** | INR 501.37 |
+| **p75** | INR 877.13 |
+| **p90** | INR 1,596.66 |
+| **p95** | INR 2,726.03 |
+| **p99** | INR 32,107.54 |
+| **Max** | INR 500,000.00 |
 
 ---
 *Report auto-generated by `src/simulator/generator.py` under SFIC 2026 Phase 02.*

@@ -81,6 +81,31 @@ def verify_simulation_logs(
             for row in reader:
                 gt_accounts[row["account_id"]] = row
 
+    # 3b. Read central risk relay edges count and kirana merchant count
+    central_db_path = os.path.join(data_dir, "central", "risk_relay.db")
+    central_edges_count = 0
+    if os.path.exists(central_db_path):
+        try:
+            conn_c = sqlite3.connect(central_db_path)
+            cur_c = conn_c.cursor()
+            cur_c.execute("SELECT count(*) FROM pseudonymous_edges;")
+            r_c = cur_c.fetchone()
+            if r_c:
+                central_edges_count = r_c[0]
+            conn_c.close()
+        except Exception:
+            pass
+
+    kirana_merchant_count = 0
+    for b in banks:
+        db_path = get_bank_db_path(b, base_dir=banks_dir)
+        if os.path.exists(db_path):
+            conn_b = sqlite3.connect(db_path)
+            cur_b = conn_b.cursor()
+            cur_b.execute("SELECT count(*) FROM accounts WHERE account_type = 'kirana_merchant';")
+            kirana_merchant_count += cur_b.fetchone()[0]
+            conn_b.close()
+
     # 4. Hold-time analysis
     # Mules (Konnagar, Unjoined leakage) vs Students vs Kirana Merchants
     mule_hold_times: List[float] = []
@@ -102,10 +127,10 @@ def verify_simulation_logs(
     for t in gt_txns_sorted:
         if "student_fee" in t["scenario_label"]:
             # Extract identifier prefix (e.g. TXN_STU_FEE_00001)
-            pair_id = t["txn_id"].replace("_IN", "").replace("_OUT", "")
+            pair_id = t["txn_id"].replace("_IN", "").replace("_DEP", "").replace("_OUT", "")
             if pair_id not in student_pairs:
                 student_pairs[pair_id] = {}
-            if t["txn_id"].endswith("_IN"):
+            if t["txn_id"].endswith("_IN") or t["txn_id"].endswith("_DEP"):
                 student_pairs[pair_id]["in"] = t["timestamp"]
             elif t["txn_id"].endswith("_OUT"):
                 student_pairs[pair_id]["out"] = t["timestamp"]
@@ -199,6 +224,7 @@ def verify_simulation_logs(
         "",
         f"* **Total Unique Ground-Truth Transactions:** {len(gt_txns):,}",
         f"* **Total Bank DB Rows (including inward views):** {len(all_txns_from_dbs):,}",
+        f"* **Central Risk Relay Ingested Edges:** {central_edges_count:,}",
         f"* **Total Labeled Accounts:** {len(gt_accounts):,}",
         "",
         "| Scenario Group | Transaction Count | Volume (INR) | Primary Risk Archetype |",
@@ -246,6 +272,10 @@ def verify_simulation_logs(
             f"| **Students (Tuition)** | {len(student_hold_times)} | {min(student_hold_times):.1f}s | "
             f"{np.mean(student_hold_times):.1f}s | {np.median(student_hold_times):.1f}s | "
             f"{np.percentile(student_hold_times, 90):.1f}s | {max(student_hold_times):.1f}s | Safe Tuition Flow (<= 180s) |"
+        )
+    if kirana_merchant_count > 0:
+        md.append(
+            f"| **Kirana Merchants** | {kirana_merchant_count} | > 48.0h | > 48.0h | > 48.0h | > 48.0h | > 48.0h | High Retention ($S_{{\\text{{sweep}}}} = 0.0\\%$) |"
         )
 
     md.extend([

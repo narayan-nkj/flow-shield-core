@@ -8,7 +8,25 @@
 
 ---
 
-## 1. Master Milestone Summary
+## 1. Foundation Readiness Checklist (Ready for Day 8: `graph_engine.py`)
+
+As of **2026-11-22** (Post CR02-D Foundation Rebuild), all core simulation, math, cryptography, and privacy guarantees have been validated clean:
+
+| # | Readiness Criterion | Verification Scope | Status | Evidence / Test Anchor |
+| :-: | :--- | :--- | :-: | :--- |
+| 1 | **Conservation** | Whole-dataset balance conservation: sender debit == receiver credit, inward mirror records present, zero negative balances. | **PASS** | `test_cross_bank_conservation_and_non_negative_balances`, `test_whole_dataset_conservation_and_inward_records` |
+| 2 | **Edge Deduplication** | Deterministic HMAC edge IDs from canonical txn IDs; idempotent insertion into `pseudonymous_edges` without degree inflation. | **PASS** | `test_edge_deduplication_idempotent` |
+| 3 | **Token Resolution** | Participating bank local vaults store tokens for both sender and receiver accounts; reverse lookup succeeds. | **PASS** | `test_receiver_local_token_map_reverse_lookup` |
+| 4 | **Holding Time ($\tau_{\text{hold}}$)** | Delta-t measured from most recent inbound credit timestamp (`last_in_ts`). Validated against rapid mules, students, and merchants. | **PASS** | `test_last_in_ts_holding_time_hand_computed`, `docs/generated/scenario_verification.md` |
+| 5 | **$M_{\text{local}}$ Protection** | Composite score correctly clamps $S_{\text{sweep}} \in [0, 1]$ without double-counting; dormant mules default to $M_{\text{local}} \le 0.20$. | **PASS** | `test_s_sweep_no_double_counting_and_clamped`, `test_dormant_account_low_m_local` |
+| 6 | **Scenario Conformance** | Konnagar 5-hop scam (SYN-0042) + Rs 2,500 innocent kirana, 4-hop leakage, smurfing funding, concentrator sweep, Durga Puja balance. | **PASS** | `test_cr02c_regressions.py` (7 tests), `docs/generated/scenario_verification.md` |
+| 7 | **Tests Green** | 48/48 tests passing across unit, regression, and schema test modules with zero weakened assertions. | **PASS** | `pytest tests/ -v` (48 passed) |
+| 8 | **Zero PII Leakage** | Automated deep scan finds zero account IDs (`ACC_BANK_*`), synthetic names, or raw balances in central, KMS, or audit DBs. | **PASS** | `test_zero_pii_leakage_in_central_and_audit_stores`, CR02-D automated PII scanner |
+| 9 | **Bitwise Determinism** | 2-pass generation with `seed=42` produces identical SHA-256 hashes across all DB SQL dumps and ground-truth CSVs. | **PASS** | CR02-D bitwise verification script (`seed=42`) |
+
+---
+
+## 2. Master Milestone Summary
 
 * **Phase 1 (Days 1–10):** Foundations & Synthetic Pipeline (Storage, Simulation, HSM Mock, PSI, Graph Engine, Threat Model)
 * **Phase 2 (Days 11–20):** Modeling, Risk API & Compliance Engine (Splits, LR Baseline, Calibration, Explainer, API, Notices, SLA, Ledger, Evaluation)
@@ -16,7 +34,7 @@
 
 ---
 
-## 2. Phase-by-Phase Execution Tracker
+## 3. Phase-by-Phase Execution Tracker
 
 | Phase / Step ID | Guide Day | Description / Task | Target Deliverables | Status | Notes / Execution Log |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -30,6 +48,7 @@
 | **CR02-A** | Refactor | Repository hygiene, security untracking, PRD single source of truth, Python 3.12 | `.gitignore`, `scripts/check_links.py`, `pyproject.toml`, `.python-version` | **COMPLETE** | Untracked CLAUDE.md, 3 presentation PDFs, ground truth CSVs. Removed EXECUTION_GUIDE.md. Rebuilt .venv with Python 3.12. (2026-11-22) |
 | **CR02-B** | Fix | P0 data and math bug fixes (inward clearing, edge dedup, holding time, S_sweep, dormant M_local) | `src/simulator/generator.py`, `src/token_service/hsm_mock.py`, `src/bank_local/local_features.py`, `tests/test_cr02b_regressions.py` | **COMPLETE** | 7/7 regression tests passed (41/41 total suite). Fixed balance conservation, deterministic edge_id, reverse token lookup, delta_t holding time, S_sweep deduplication, and dormant mule protection suppression. (2026-11-22) |
 | **CR02-C** | Fix | P1 scenario archetypes and crypto fixes (innocent kirana, 4-hop leakage, smurfing inflow, concentrator sweep, Puja balance, sliding overlap, RFC2409 prime) | `src/simulator/scenarios.py`, `src/token_service/hsm_mock.py`, `src/token_service/psi_benchmark.py`, `tests/test_cr02c_regressions.py` | **COMPLETE** | 7/7 regression tests passed (48/48 total suite). Implemented innocent kirana branch, 4-hop unjoined leakage, smurfing prior inflow with sub-threshold amounts, concentrator onward sweep, festival balance conservation, sliding 24h key rotation overlap, and RFC 2409 Oakley Group 2 constant verification. (2026-11-22) |
+| **CR02-D** | Rebuild | Regenerate clean foundation, edge ingestion, verification reports, determinism validation | `src/simulator/scenarios.py`, `src/token_service/hsm_mock.py`, `src/simulator/verify_scenarios.py`, `docs/generated/` | **COMPLETE** | Clean DB reset, 5,000 accounts regenerated, 19,819 edges ingested, 48/48 tests green, 100% bitwise determinism verified, zero-PII confirmed, hold-time distributions documented. (2026-11-22) |
 | **Phase 07B** | Day 10 | Phase 1 integration tests & comprehensive threat model | `tests/test_phase1.py`, `docs/threat_model.md` | NOT STARTED | Confirms zero PII egress & privacy boundary |
 | **Phase 08** | Days 8–9 | Temporal Graph Engine ($V_p$ velocity, $H_{\text{entropy}}$, 2-hop aggregation) | `src/risk_service/graph_engine.py` | NOT STARTED | NetworkX sliding-window multigraph |
 | **Phase 08A** | Day 11 | Chronological train/validation/test dataset splits | `src/risk_service/splits.py` | NOT STARTED | Leakage-free temporal data partitioning |

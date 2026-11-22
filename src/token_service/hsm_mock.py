@@ -561,3 +561,15 @@ class PseudonymousEdgePipeline:
 
         print(f"[✔] Edge Pipeline: {len(transformed_edges):,} pseudonymous edges ingested into '{self.central_db_path}'.")
         return len(transformed_edges)
+
+
+if __name__ == "__main__":
+    hsm = MockHSMService(kms_db_path="data/kms/hsm_mock.db")
+    pipeline = PseudonymousEdgePipeline(
+        hsm_service=hsm,
+        central_db_path="data/central/risk_relay.db",
+        base_data_dir="data"
+    )
+    edge_count = pipeline.process_edges(participating_banks=["BANK_A", "BANK_B", "BANK_C"])
+    print(f"[✔] Pipeline executed successfully. Total edges processed: {edge_count:,}")
+

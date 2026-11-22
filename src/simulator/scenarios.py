@@ -1009,6 +1009,11 @@ def run_scenario_pipeline(
     print(f"[*] Compiling scenario catalogue to '{cat_path}'...")
     engine.generate_scenario_catalogue(scenario_metrics, output_path=cat_path)
 
+    # 6. Generate simulation summary report
+    summary_path = "docs/generated/sim_summary.md"
+    print(f"[*] Compiling simulation summary to '{summary_path}'...")
+    gen.generate_summary_report(bank_accounts, all_txns, output_path=summary_path)
+
     print(f"[✔] Pipeline complete: {len(all_txns):,} total transactions, {len(account_labels):,} ground-truth labels generated.")
     return all_txns, account_labels, scenario_metrics
 
