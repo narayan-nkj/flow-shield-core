@@ -132,6 +132,36 @@
 
 ---
 
+### ADR-008: P0 Data & Mathematical Bug Fixes (CR02-B)
+* **Status:** ACCEPTED (Implemented per CR02-B)
+* **Context & Issues Resolved:**
+  1. **Inward Clearing & Balance Conservation (`src/simulator/generator.py`):**
+     * *Bug:* Outgoing transactions previously did not enforce sender liquidity or maintain running balances, risking negative balances. Additionally, base scenario transactions ending in `_IN` collided with inward clearing gateway identifiers.
+     * *Root Cause:* `generate_transactions()` did not track running balances or clamp amounts by available balance; `scenarios.py` used `_IN` suffix for deposit transactions (`TXN_STU_FEE_..._IN`, `TXN_DORM_SPIKE_..._IN`).
+     * *Fix:* Added `_execute_transfer()` helper enforcing `sender.balance_inr >= amount`, deducting debit from sender and adding credit to receiver, strictly conserving total funds. Renamed scenario deposit transactions to `_DEP` and cleaned legacy records in bank DBs.
+     * *Test Name:* `tests/test_cr02b_regressions.py::test_cross_bank_conservation_and_non_negative_balances`, `tests/test_cr02b_regressions.py::test_whole_dataset_conservation_and_inward_records`.
+  2. **Edge Deduplication, Receiver Token Map & Holding Time (`src/token_service/hsm_mock.py`):**
+     * *Bug 2a (Edge Deduplication):* Re-running `process_edges()` produced duplicate edges due to random UUIDs and uncoordinated processing of inward clearing mirrors.
+     * *Root Cause:* Random `uuid.uuid4()` generated new IDs per execution; inward clearing gateway records were treated as independent transactions instead of accounting mirrors.
+     * *Fix 2a:* Edge ID derived deterministically via `EDGE-SHA256(canonical_txn_id)[:16]`. Outgoing transactions from participating banks are prioritized; mirror inward records for participating senders are deduplicated, rendering the pipeline completely idempotent.
+     * *Bug 2b (Receiver Token Map):* Destination tokens (`dst_token`) were not written to receiving bank `local_token_map`, preventing receiving banks from resolving counterparty accounts locally.
+     * *Root Cause:* `process_edges()` only inserted `src_tok` into `source_bank_id`'s `local_token_map`.
+     * *Fix 2b:* Extracted destination bank identifier from `dst_account_id` and inserted `dst_tok -> dst_account_id` into that receiving bank's `local_token_map`. Preserved strict zero-cross-bank-leakage (only the owning bank can resolve its own account).
+     * *Bug 2c (`last_in_ts` Holding Time):* Holding time $\Delta t$ was measured from any prior event rather than the most recent inbound credit.
+     * *Root Cause:* `last_event_ts` recorded outbound events as baseline timestamps for subsequent outflows.
+     * *Fix 2c:* Maintained `last_in_ts` tracking strictly incoming credits. When an account disperses funds, $\Delta t = \max(0, event\_unix - last\_in\_ts[src])$. For accounts with no prior inflow in observation window, defaulted to `DEFAULT_NO_INFLOW_HOLD_TIME_SEC = 86400.0` (24h, representing mature balance holding).
+     * *Test Names:* `tests/test_cr02b_regressions.py::test_edge_deduplication_idempotent`, `tests/test_cr02b_regressions.py::test_receiver_local_token_map_reverse_lookup`, `tests/test_cr02b_regressions.py::test_last_in_ts_holding_time_hand_computed`.
+  3. **$S_{\text{sweep}}$ Double-Counting & Dormant Account $M_{\text{local}}$ Default (`src/bank_local/local_features.py`):**
+     * *Bug 3a ($S_{\text{sweep}}$ Double-Counting):* An outflow within overlapping 10-minute windows of multiple inflows was added multiple times to `swept_volume`, inflating $S_{\text{sweep}}$.
+     * *Root Cause:* Nested iteration over inflows and outflows summed amount without tracking unique outflow transaction IDs.
+     * *Fix 3a:* Maintained `swept_tx_ids = set()` ensuring each outflow is counted at most once toward swept volume; clamped $S_{\text{sweep}} \in [0.0, 1.0]$.
+     * *Bug 3b (Dormant Account $R_{\text{repeat}}$ & $M_{\text{local}}$):* Mature dormant accounts with zero transactions received $R_{\text{repeat}} = 0.5$ and $(1 - S_{\text{sweep}}) = 1.0$, resulting in an inflated $M_{\text{local}} = 0.80$, suppressing mule alerts.
+     * *Root Cause:* Defaulting $R_{\text{repeat}} = 0.5$ when no inflows existed, and granting full merchant retention bonus $(1 - S_{\text{sweep}}) = 1.0$ when total inflow was zero.
+     * *Fix 3b:* Defaulted $R_{\text{repeat}} = 0.0$ when incoming transaction count $< 2$. When `total_inflow == 0`, set merchant retention credit to $0.0$, capping dormant account $M_{\text{local}} \le 0.20$ ($w_c \cdot T_{\text{age}}$ only).
+     * *Test Names:* `tests/test_cr02b_regressions.py::test_s_sweep_no_double_counting_and_clamped`, `tests/test_cr02b_regressions.py::test_dormant_account_low_m_local`.
+
+---
+
 ## 3. ADR Template for Future Additions
 
 ```markdown

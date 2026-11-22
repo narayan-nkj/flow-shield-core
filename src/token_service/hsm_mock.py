@@ -344,6 +344,19 @@ class MockHSMService:
 
 
 # --- Pseudonymous Edge Pipeline ---
+# Default holding time for accounts with no prior inbound credit in observation window
+# 86,400 seconds (24 hours) represents a mature balance holding time, preventing false velocity spikes.
+DEFAULT_NO_INFLOW_HOLD_TIME_SEC: float = 86400.0
+
+
+def get_bank_for_account(account_id: str) -> Optional[str]:
+    """Extract bank identifier from canonical account ID format (e.g., 'ACC_BANK_A_000123' -> 'BANK_A')."""
+    parts = account_id.split("_")
+    if len(parts) >= 3 and parts[0] == "ACC" and parts[1] == "BANK":
+        return f"{parts[1]}_{parts[2]}"
+    return None
+
+
 class PseudonymousEdgePipeline:
     """Converts bank-local raw transactions into central pseudonymous edges.
 
@@ -439,15 +452,34 @@ class PseudonymousEdgePipeline:
                 })
             conn_b.close()
 
+        # Deduplicate cross-bank transactions:
+        # A participating sending bank provides the primary edge (real sender -> recipient).
+        # A participating receiving bank only provides an inward edge if the sender was external/non-participating.
+        primary_txs = [
+            tx for tx in raw_tx_records
+            if not tx["src_account_id"].endswith("_NPCI_INWARD") and not tx["txn_id"].endswith("_IN")
+        ]
+        seen_canonical_ids = {tx["txn_id"] for tx in primary_txs}
+
+        inward_txs = []
+        for tx in raw_tx_records:
+            if tx["src_account_id"].endswith("_NPCI_INWARD") or tx["txn_id"].endswith("_IN"):
+                canonical_id = tx["txn_id"][:-3] if tx["txn_id"].endswith("_IN") else tx["txn_id"]
+                if canonical_id not in seen_canonical_ids:
+                    seen_canonical_ids.add(canonical_id)
+                    inward_txs.append(tx)
+
+        tx_to_process = primary_txs + inward_txs
         if stream_mode:
             # Sort chronologically to simulate streaming ingestion
-            raw_tx_records.sort(key=lambda x: x["timestamp"])
+            tx_to_process.sort(key=lambda x: x["timestamp"])
 
         # 3. Transform to pseudonymous edges
         transformed_edges = []
-        last_event_ts: Dict[str, float] = {}  # token -> epoch unix timestamp
+        last_in_ts: Dict[str, float] = {}  # token -> unix timestamp of most recent inbound credit
 
-        for tx in raw_tx_records:
+        for tx in tx_to_process:
+            canonical_txn_id = tx["txn_id"][:-3] if tx["txn_id"].endswith("_IN") else tx["txn_id"]
             t_event = datetime.datetime.fromisoformat(tx["timestamp"].replace("Z", "+00:00"))
             event_unix = t_event.timestamp()
 
@@ -465,26 +497,47 @@ class PseudonymousEdgePipeline:
                 as_of_ts=t_event
             )
 
-            # Store mapping inside local bank for reverse lookup
-            bank_db = get_bank_db_path(tx["source_bank_id"], base_dir=banks_dir)
-            conn_loc = sqlite3.connect(bank_db)
-            conn_loc.execute("""
-                INSERT OR IGNORE INTO local_token_map (token_hash, account_id, epoch_id, created_at)
-                VALUES (?, ?, ?, ?);
-            """, (src_tok, tx["src_account_id"], active_epoch, tx["timestamp"]))
-            conn_loc.commit()
-            conn_loc.close()
+            # Store mapping inside local banks for reverse lookup:
+            # 1. Source account -> source bank local_token_map
+            src_bank = get_bank_for_account(tx["src_account_id"]) or tx["source_bank_id"]
+            if src_bank in participating_banks and not tx["src_account_id"].endswith("_NPCI_INWARD"):
+                bank_db = get_bank_db_path(src_bank, base_dir=banks_dir)
+                if os.path.exists(bank_db):
+                    conn_loc = sqlite3.connect(bank_db)
+                    conn_loc.execute("""
+                        INSERT OR IGNORE INTO local_token_map (token_hash, account_id, epoch_id, created_at)
+                        VALUES (?, ?, ?, ?);
+                    """, (src_tok, tx["src_account_id"], active_epoch, tx["timestamp"]))
+                    conn_loc.commit()
+                    conn_loc.close()
+
+            # 2. Destination account -> destination bank local_token_map (CR02-B Fix)
+            dst_bank = get_bank_for_account(tx["dst_account_id"])
+            if dst_bank and dst_bank in participating_banks:
+                dst_db = get_bank_db_path(dst_bank, base_dir=banks_dir)
+                if os.path.exists(dst_db):
+                    conn_dst = sqlite3.connect(dst_db)
+                    conn_dst.execute("""
+                        INSERT OR IGNORE INTO local_token_map (token_hash, account_id, epoch_id, created_at)
+                        VALUES (?, ?, ?, ?);
+                    """, (dst_tok, tx["dst_account_id"], active_epoch, tx["timestamp"]))
+                    conn_dst.commit()
+                    conn_dst.close()
 
             # Compute log amount: log(1 + Amount)
             log_amt = round(math.log(1.0 + float(tx["amount_inr"])), 4)
 
-            # Compute delta_t relative to previous activity on source node
-            prev_ts = last_event_ts.get(src_tok, event_unix)
-            delta_t = max(0.0, event_unix - prev_ts)
-            last_event_ts[src_tok] = event_unix
-            last_event_ts[dst_tok] = event_unix
+            # Compute delta_t relative to most recent INBOUND credit timestamp (CR02-B Fix)
+            if src_tok in last_in_ts:
+                delta_t = max(0.0, event_unix - last_in_ts[src_tok])
+            else:
+                delta_t = DEFAULT_NO_INFLOW_HOLD_TIME_SEC
 
-            edge_id = f"EDGE-{uuid.uuid4().hex[:12].upper()}"
+            # Update last_in_ts for the receiving node only
+            last_in_ts[dst_tok] = event_unix
+
+            # Deterministic edge_id from canonical transaction ID (CR02-B Fix)
+            edge_id = f"EDGE-{hashlib.sha256(canonical_txn_id.encode('utf-8')).hexdigest()[:16].upper()}"
             ingested_ts = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
             transformed_edges.append((

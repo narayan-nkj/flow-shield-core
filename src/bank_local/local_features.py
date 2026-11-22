@@ -54,17 +54,20 @@ def compute_m_local(
     account_age_days: int,
     w_a: float = 0.4,
     w_b: float = 0.4,
-    w_c: float = 0.2
+    w_c: float = 0.2,
+    has_inflow: bool = True
 ) -> float:
     """Compute Composite Merchant Protection Score M_local(u) per PRD Section 5.1 (eq 4).
 
     M_local(u) = w_a * R_repeat + w_b * (1 - S_sweep) + w_c * T_age_tier
+    If has_inflow is False, no customer sales were received, so the retention bonus (1 - S_sweep) is 0.0.
     """
     r_repeat_clamped = max(0.0, min(1.0, r_repeat))
     s_sweep_clamped = max(0.0, min(1.0, s_sweep))
     t_age_tier = min(1.0, max(0.0, account_age_days / 365.0))
+    non_sweep = (1.0 - s_sweep_clamped) if has_inflow else 0.0
 
-    score = w_a * r_repeat_clamped + w_b * (1.0 - s_sweep_clamped) + w_c * t_age_tier
+    score = w_a * r_repeat_clamped + w_b * non_sweep + w_c * t_age_tier
     return float(max(0.0, min(1.0, score)))
 
 
@@ -131,7 +134,8 @@ def calculate_local_metrics(
     outgoing_txns = [t for t in txns_7d if t["src_account_id"] == account_id]
 
     # A. Repeat Customer Ratio (R_repeat)
-    if incoming_txns:
+    # Require at least 2 incoming transactions to evaluate repeat customer behavior
+    if len(incoming_txns) >= 2:
         payers: Dict[str, int] = {}
         for t in incoming_txns:
             p = t["src_account_id"]
@@ -140,12 +144,15 @@ def calculate_local_metrics(
         repeat_tx_count = sum(cnt for cnt in payers.values() if cnt >= 2)
         r_repeat = repeat_tx_count / len(incoming_txns)
     else:
-        r_repeat = 0.5  # Neutral default when no incoming transactions exist
+        # Conservative default: accounts with 0 or 1 inflow have no proven customer base
+        r_repeat = 0.0
 
     # B. 10-Minute Sweep-Out Ratio (S_sweep)
+    # S_sweep = swept_volume / total_inflow clamped strictly to [0, 1]
+    # Each outflow transaction is counted at most once across overlapping 10-minute inflow windows
     total_inflow = sum(t["amount_inr"] for t in incoming_txns)
     if total_inflow > 0 and outgoing_txns:
-        swept_volume = 0.0
+        swept_tx_ids = set()
         for in_tx in incoming_txns:
             t_in = datetime.datetime.fromisoformat(in_tx["timestamp"].replace("Z", "+00:00"))
             t_window = t_in + datetime.timedelta(seconds=sweep_window_sec)
@@ -153,9 +160,12 @@ def calculate_local_metrics(
             for out_tx in outgoing_txns:
                 t_out = datetime.datetime.fromisoformat(out_tx["timestamp"].replace("Z", "+00:00"))
                 if t_in <= t_out <= t_window:
-                    swept_volume += out_tx["amount_inr"]
+                    swept_tx_ids.add(out_tx["txn_id"])
 
-        s_sweep = min(1.0, swept_volume / total_inflow)
+        swept_volume = sum(
+            out_tx["amount_inr"] for out_tx in outgoing_txns if out_tx["txn_id"] in swept_tx_ids
+        )
+        s_sweep = max(0.0, min(1.0, swept_volume / total_inflow))
     else:
         s_sweep = 0.0
 
@@ -165,7 +175,8 @@ def calculate_local_metrics(
         account_age_days=age_days,
         w_a=w_a,
         w_b=w_b,
-        w_c=w_c
+        w_c=w_c,
+        has_inflow=(total_inflow > 0.0)
     )
 
     return z_dorm, m_local, is_cold

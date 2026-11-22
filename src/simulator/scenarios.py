@@ -345,7 +345,7 @@ class ScenarioEngine:
 
             # 1. Inflow from parent to student
             tx_in = SyntheticTransaction(
-                txn_id=f"TXN_STU_FEE_{tx_counter:05d}_IN",
+                txn_id=f"TXN_STU_FEE_{tx_counter:05d}_DEP",
                 src_account_id=parent.account_id,
                 dst_account_id=s.account_id,
                 amount_inr=fee_amt,
@@ -562,7 +562,7 @@ class ScenarioEngine:
 
             # 1. Massive sudden inflow into dormant account
             tx_in = SyntheticTransaction(
-                txn_id=f"TXN_DORM_SPIKE_{idx:02d}_IN",
+                txn_id=f"TXN_DORM_SPIKE_{idx:02d}_DEP",
                 src_account_id=external_sender.account_id,
                 dst_account_id=target.account_id,
                 amount_inr=inflow_amt,

@@ -265,6 +265,24 @@ class SyntheticGenerator:
         else:
             return "UPI" if self.rng.random() < 0.90 else "IMPS"
 
+    def _execute_transfer(self, sender: SyntheticAccount, receiver: SyntheticAccount, desired_amount: float) -> float:
+        """Ensure balance conservation and that sender balance never drops below zero.
+
+        Deducts amount from sender and adds identical amount to receiver.
+        Returns the actual transferred amount (or 0.0 if insufficient funds).
+        """
+        reserve = 0.0 if sender.account_type == "nodal_whitelisted" else 50.0
+        available = max(0.0, sender.balance_inr - reserve)
+        if available <= 0.0:
+            return 0.0
+        amount = min(desired_amount, available)
+        amount = round(amount, 2)
+        if amount < 1.0:
+            return 0.0
+        sender.balance_inr = round(sender.balance_inr - amount, 2)
+        receiver.balance_inr = round(receiver.balance_inr + amount, 2)
+        return amount
+
     def generate_transactions(
         self, bank_accounts: Dict[str, List[SyntheticAccount]]
     ) -> List[SyntheticTransaction]:
@@ -297,15 +315,19 @@ class SyntheticGenerator:
             for _ in range(tx_count):
                 sender = self.rng.choice(loyal_custs)
                 # Kirana amounts: typical ₹80 - ₹3,500
-                amount = float(self.np_rng.lognormal(mean=5.8, sigma=0.8))  # ~330 INR
-                amount = max(30.0, min(amount, 9500.0))
+                desired_amount = float(self.np_rng.lognormal(mean=5.8, sigma=0.8))  # ~330 INR
+                desired_amount = max(30.0, min(desired_amount, 9500.0))
+                amount = self._execute_transfer(sender, m, desired_amount)
+                if amount <= 0.0:
+                    continue
+
                 ts = self._sample_timestamp()
 
                 tx = SyntheticTransaction(
                     txn_id=f"TXN_{txn_counter:08d}",
                     src_account_id=sender.account_id,
                     dst_account_id=m.account_id,
-                    amount_inr=round(amount, 2),
+                    amount_inr=amount,
                     channel="UPI",
                     timestamp=ts.strftime("%Y-%m-%dT%H:%M:%SZ"),
                     scenario_label="normal_merchant_payment",
@@ -325,8 +347,12 @@ class SyntheticGenerator:
                 receiver = self.rng.choice(retail_accs)
 
             # Amount: ₹200 to ₹25,000
-            amount = float(self.np_rng.lognormal(mean=7.2, sigma=0.9))  # ~1300 INR
-            amount = max(100.0, min(amount, 45000.0))
+            desired_amount = float(self.np_rng.lognormal(mean=7.2, sigma=0.9))  # ~1300 INR
+            desired_amount = max(100.0, min(desired_amount, 45000.0))
+            amount = self._execute_transfer(sender, receiver, desired_amount)
+            if amount <= 0.0:
+                continue
+
             ts = self._sample_timestamp()
             channel = self._select_channel(amount)
 
@@ -334,7 +360,7 @@ class SyntheticGenerator:
                 txn_id=f"TXN_{txn_counter:08d}",
                 src_account_id=sender.account_id,
                 dst_account_id=receiver.account_id,
-                amount_inr=round(amount, 2),
+                amount_inr=amount,
                 channel=channel,
                 timestamp=ts.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 scenario_label="normal_retail_p2p",
@@ -350,8 +376,12 @@ class SyntheticGenerator:
                 # ~40% of retail users receive a salary credit in this 7-day window
                 if self.rng.random() < 0.40:
                     employer_nodal = self.rng.choice(nodal_accs)
-                    salary_amt = float(self.np_rng.lognormal(mean=10.4, sigma=0.4))  # ~33,000 INR
-                    salary_amt = max(15000.0, min(salary_amt, 150000.0))
+                    desired_salary = float(self.np_rng.lognormal(mean=10.4, sigma=0.4))  # ~33,000 INR
+                    desired_salary = max(15000.0, min(desired_salary, 150000.0))
+                    salary_amt = self._execute_transfer(employer_nodal, r, desired_salary)
+                    if salary_amt <= 0.0:
+                        continue
+
                     # Payday usually on 1st, 15th, or month end
                     day_offset = self.rng.choice([0, 1, 5, 6])
                     hour = self.rng.randint(6, 11)
@@ -361,7 +391,7 @@ class SyntheticGenerator:
                         txn_id=f"TXN_{txn_counter:08d}",
                         src_account_id=employer_nodal.account_id,
                         dst_account_id=r.account_id,
-                        amount_inr=round(salary_amt, 2),
+                        amount_inr=salary_amt,
                         channel="IMPS" if salary_amt < 100000.0 else "RTGS",
                         timestamp=ts.strftime("%Y-%m-%dT%H:%M:%SZ"),
                         scenario_label="normal_salary_inflow",
@@ -375,34 +405,40 @@ class SyntheticGenerator:
         for s in student_accs:
             # Pocket money transfer from a retail parent
             parent = self.rng.choice(retail_accs)
-            parent_amt = float(self.rng.uniform(1500.0, 7500.0))
-            ts_parent = self._sample_timestamp()
+            desired_parent_amt = float(self.rng.uniform(1500.0, 7500.0))
+            parent_amt = self._execute_transfer(parent, s, desired_parent_amt)
+            if parent_amt > 0.0:
+                ts_parent = self._sample_timestamp()
 
-            tx_parent = SyntheticTransaction(
-                txn_id=f"TXN_{txn_counter:08d}",
-                src_account_id=parent.account_id,
-                dst_account_id=s.account_id,
-                amount_inr=round(parent_amt, 2),
-                channel="UPI",
-                timestamp=ts_parent.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                scenario_label="normal_student_allowance",
-                sending_bank=parent.bank_id,
-                receiving_bank=s.bank_id
-            )
-            transactions.append(tx_parent)
-            txn_counter += 1
+                tx_parent = SyntheticTransaction(
+                    txn_id=f"TXN_{txn_counter:08d}",
+                    src_account_id=parent.account_id,
+                    dst_account_id=s.account_id,
+                    amount_inr=parent_amt,
+                    channel="UPI",
+                    timestamp=ts_parent.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    scenario_label="normal_student_allowance",
+                    sending_bank=parent.bank_id,
+                    receiving_bank=s.bank_id
+                )
+                transactions.append(tx_parent)
+                txn_counter += 1
 
             # Micro outlays: cafeteria, books, printouts (3 to 8 txns)
             for _ in range(self.rng.randint(3, 8)):
                 m_target = self.rng.choice(merchant_accs)
-                micro_amt = float(self.rng.uniform(20.0, 450.0))
+                desired_micro = float(self.rng.uniform(20.0, 450.0))
+                micro_amt = self._execute_transfer(s, m_target, desired_micro)
+                if micro_amt <= 0.0:
+                    continue
+
                 ts_micro = self._sample_timestamp()
 
                 tx_micro = SyntheticTransaction(
                     txn_id=f"TXN_{txn_counter:08d}",
                     src_account_id=s.account_id,
                     dst_account_id=m_target.account_id,
-                    amount_inr=round(micro_amt, 2),
+                    amount_inr=micro_amt,
                     channel="UPI",
                     timestamp=ts_micro.strftime("%Y-%m-%dT%H:%M:%SZ"),
                     scenario_label="normal_student_transfer",
@@ -417,14 +453,18 @@ class SyntheticGenerator:
             for r in retail_accs:
                 if self.rng.random() < 0.35:
                     utility = self.rng.choice(nodal_accs)
-                    bill_amt = float(self.rng.uniform(250.0, 4200.0))
+                    desired_bill = float(self.rng.uniform(250.0, 4200.0))
+                    bill_amt = self._execute_transfer(r, utility, desired_bill)
+                    if bill_amt <= 0.0:
+                        continue
+
                     ts_bill = self._sample_timestamp()
 
                     tx_bill = SyntheticTransaction(
                         txn_id=f"TXN_{txn_counter:08d}",
                         src_account_id=r.account_id,
                         dst_account_id=utility.account_id,
-                        amount_inr=round(bill_amt, 2),
+                        amount_inr=bill_amt,
                         channel="UPI",
                         timestamp=ts_bill.strftime("%Y-%m-%dT%H:%M:%SZ"),
                         scenario_label="normal_bill_payment",
