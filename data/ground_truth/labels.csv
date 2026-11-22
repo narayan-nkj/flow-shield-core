@@ -1,0 +1,516 @@
+account_id,bank_id,account_type,is_mule,scenario_label,disputed_lien_inr,unrestricted_balance_inr,case_id,notes
+ACC_BANK_B_001126,BANK_B,retail,1,konnagar_scam_mule_hop_1,500000.0,11057.8,SYN-0042_HOP_1,"Konnagar ₹5,00,000 scam ring mule at hop 1. Exits at BANK_D."
+ACC_BANK_C_002001,BANK_C,retail,1,konnagar_scam_mule_hop_2,2500,85000,SYN-0042,"Konnagar ₹5,00,000 scam ring mule at hop 2. Exits at BANK_D."
+ACC_BANK_A_000894,BANK_A,retail,1,konnagar_scam_mule_hop_3,500000.0,13725.45,SYN-0042_HOP_3,"Konnagar ₹5,00,000 scam ring mule at hop 3. Exits at BANK_D."
+ACC_BANK_B_001855,BANK_B,retail,1,konnagar_scam_mule_hop_4,500000.0,18631.14,SYN-0042_HOP_4,"Konnagar ₹5,00,000 scam ring mule at hop 4. Exits at BANK_D."
+ACC_BANK_D_003778,BANK_D,retail,1,konnagar_scam_mule_hop_5,500000.0,18433.6,SYN-0042_HOP_5,"Konnagar ₹5,00,000 scam ring mule at hop 5. Exits at BANK_D."
+ACC_BANK_E_004731,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,24883.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002485,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,25587.29,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000912,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,32810.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003885,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,18438.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000353,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,20222.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000324,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,39160.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000982,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,12514.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003352,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,86519.85,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000194,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,55866.61,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003559,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,35975.71,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002541,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,34204.78,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003622,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,208765.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002260,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,35435.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001251,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,107680.06,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001808,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,26895.61,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000970,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,74149.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001142,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,28916.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000585,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,38453.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001543,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,80401.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001534,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,168395.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002880,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,32800.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003189,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,63391.05,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002819,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,98829.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003961,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,123477.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003805,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,108354.82,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002016,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,29133.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002605,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,48507.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002150,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,28672.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004866,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,75705.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001353,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,14101.82,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001405,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,20124.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003019,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,85089.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004324,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,28516.39,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000346,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,32038.86,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002674,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,34289.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004207,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,27022.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001732,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,26491.62,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004855,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,23924.58,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001514,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,9909.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003355,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,233733.59,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001190,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,25071.98,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001576,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,14311.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002030,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,60401.35,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000451,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,25195.77,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004399,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,16203.22,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000330,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,59437.94,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000742,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,431529.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001979,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,137315.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000924,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,20216.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002829,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,37581.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003964,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,21427.73,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004040,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,24664.46,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004777,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,52051.57,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004479,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,39304.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003608,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,131561.9,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003302,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,75425.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002263,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,28828.0,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001901,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,58581.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004806,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,13846.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003806,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,7240.36,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001464,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,33855.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001362,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,105506.16,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001397,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,36363.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003628,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,50491.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000321,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,100001.47,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000485,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,26150.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002789,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,58065.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002918,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,67203.27,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000202,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,54379.41,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000261,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,23882.78,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002828,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,70421.09,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002941,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,517654.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000310,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,146228.34,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001524,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,24484.8,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001977,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,34294.2,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003626,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,164200.51,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003345,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,40647.58,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004099,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,33461.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004510,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,93172.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001499,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,356750.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000555,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,70626.61,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002604,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,79370.55,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004288,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,204428.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002774,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,68493.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003077,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,26783.28,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002737,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,16777.41,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002264,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,67643.6,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001333,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,103841.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000527,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,130877.65,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003539,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,41421.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004216,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,126998.8,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000129,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,19538.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002199,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,24159.32,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002505,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,49457.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001603,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,50628.5,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000678,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,317449.95,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001280,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,24124.55,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003444,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,22320.9,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000165,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,40914.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004063,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,56340.57,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002319,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,82223.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003500,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,36219.22,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000300,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,83382.87,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001660,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,76991.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001093,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,40033.27,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004598,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,83460.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003673,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,35724.26,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000072,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,46475.71,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004298,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,19346.2,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003374,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,57898.41,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002301,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,21054.91,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000262,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,23548.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004920,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,43756.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004220,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,22176.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003300,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,77700.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001060,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,33602.76,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004443,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,72051.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002466,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,18268.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000316,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,23195.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000320,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,14925.82,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003578,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,29526.0,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002955,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,9282.77,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003373,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,40502.41,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004255,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,53305.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003263,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,31737.68,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004569,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,37089.03,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004081,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,46809.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003547,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,60038.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001052,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,67398.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002965,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,27286.94,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004663,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,35720.69,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000702,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,23800.69,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004251,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,23532.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001339,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,216273.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001098,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,89127.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004505,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,18948.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003272,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,22853.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001861,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,37339.57,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002238,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,25716.9,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003176,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,11151.79,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002123,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,17951.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002067,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,43576.59,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002853,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,53328.95,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004153,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,32468.8,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003940,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,56400.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004432,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,138392.76,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000128,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,14847.97,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004544,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,182276.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001639,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,27014.82,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000746,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,106121.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001006,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,31891.83,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004482,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,26345.17,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000830,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,7069.77,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004638,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,15963.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004100,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,66979.06,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002744,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,11068.03,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004517,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,101077.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000370,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,41035.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003630,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,36879.09,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001950,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,73165.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000479,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,269018.55,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000389,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,30888.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004322,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,28284.56,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000778,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,314517.98,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004925,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,41520.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003419,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,283407.46,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002554,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,9485.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002707,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,32864.72,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003357,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,19717.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000084,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22228.51,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002209,BANK_C,kirana_merchant,1,dormant_dispersal_mule,150000.0,36512.96,SYN-DORM-MULE-02-2,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000846,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,32297.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000794,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,32716.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003975,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,55975.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000875,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,10446.55,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003876,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,32888.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003777,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,17099.16,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000600,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,35954.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004356,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,54161.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000039,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,17814.35,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000308,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,51535.3,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002320,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,23501.08,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001425,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,78631.34,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000713,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,16033.91,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004609,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,46347.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002075,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,27673.99,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003856,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,10550.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002696,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,43354.86,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000404,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22095.5,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002403,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,30964.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001481,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,87552.28,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002138,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,41074.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002815,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,27000.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000694,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,29711.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004287,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,18824.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004956,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,167043.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002266,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,39922.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004689,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,67642.94,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001467,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,43714.83,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000978,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,62010.89,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004240,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,37063.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000974,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,36622.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000336,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,14643.03,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002206,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,65007.69,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000582,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,15090.58,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001652,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,50840.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004125,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,39082.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000476,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22705.69,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004773,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,22691.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003328,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,275310.47,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002924,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,19492.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001632,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,17758.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003727,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,30158.75,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004331,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,67403.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000878,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,24089.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002760,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,380328.34,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002227,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,29011.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001298,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,19327.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002544,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,367689.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002010,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,344645.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001406,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,38075.84,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004995,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,318538.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003026,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,269761.81,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001877,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,97922.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003629,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,49685.6,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003016,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,58297.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004592,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,135721.27,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004939,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,38171.2,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000054,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22929.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002361,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,58982.69,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004881,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,20523.85,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000286,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,60560.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001531,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,91321.73,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002387,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,12035.27,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001017,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,27614.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004911,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,53628.57,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000791,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,54260.98,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002991,BANK_C,kirana_merchant,1,dormant_dispersal_mule,150000.0,94494.0,SYN-DORM-MULE-02-1,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_E_004020,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,26973.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000228,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,154931.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000938,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,25746.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003249,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,380385.11,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004316,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,26204.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003206,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,233949.87,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000645,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22727.65,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002331,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,17136.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001697,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,21313.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002972,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,71587.72,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003385,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,25932.72,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000766,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,11028.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003834,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,18262.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002088,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,21290.41,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004973,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,44113.99,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000007,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,28678.99,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004934,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,90628.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003552,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,45529.97,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001960,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,20069.85,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000260,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,13528.48,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002071,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,22672.85,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003862,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,357055.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001042,BANK_B,kirana_merchant,1,dormant_dispersal_mule,150000.0,107964.49,SYN-DORM-MULE-03-3,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_D_003540,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,52803.46,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001993,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,294391.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002315,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,327239.72,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002089,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,19640.08,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002316,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,32311.11,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000196,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,17199.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001631,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,14618.78,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004535,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,72904.78,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003256,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,83851.39,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004715,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,20095.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003585,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,303640.87,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004954,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,10818.59,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003202,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,48134.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000301,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,145938.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003927,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,39936.17,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004191,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,109237.79,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001074,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,38672.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002661,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,16249.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003850,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,17935.83,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003251,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,115815.16,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002322,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,50457.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002035,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,280828.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002781,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,57082.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003899,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,19569.98,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003265,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,60103.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000187,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,29484.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002936,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,6837.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004789,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,72446.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000864,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,28056.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002813,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,61808.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001761,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,14941.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003023,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,85885.59,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000311,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,117121.22,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001223,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,33040.56,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003725,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,25581.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002012,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,65420.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000237,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,9194.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003933,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,32069.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004101,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,91672.37,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002048,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,34508.52,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002681,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,49832.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004741,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,23497.82,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004959,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,36477.29,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001466,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,27450.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001783,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,27596.65,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004398,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,21328.38,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003864,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,141081.6,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002599,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,10333.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000733,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,91080.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001229,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,35588.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001167,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,91923.51,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004168,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,48547.36,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004983,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,11432.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000111,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,33430.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004630,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,48371.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003983,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,63385.34,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003567,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,38510.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004870,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,28221.73,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_001000,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,101671.39,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001589,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,49315.91,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003060,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,22973.7,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002637,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,22820.06,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000100,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,17107.3,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003010,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,38941.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000073,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,16988.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001024,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,36609.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001888,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,290643.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001594,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,200419.74,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004981,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,36072.68,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002324,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,27061.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001200,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,15848.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004826,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,206867.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002333,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,81170.06,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003084,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,59339.77,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003175,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,39672.12,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001312,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,100894.24,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001169,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,62025.46,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002261,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,8195.62,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001838,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,65941.13,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002995,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,60224.92,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004534,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,40152.58,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001271,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,58016.51,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000672,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,30828.19,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000115,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,27891.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003848,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,218775.56,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000844,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,25676.99,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003132,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,19247.94,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002865,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,15630.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000391,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,8475.61,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002084,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,77915.42,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001983,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,27324.08,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004752,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,80832.09,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001988,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,53804.54,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000798,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,45688.96,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004885,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,87250.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004835,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,12001.17,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001835,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,35930.11,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000164,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,52651.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001432,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,16907.38,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001737,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,13572.93,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001289,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,73258.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002907,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,47633.64,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004845,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,26328.18,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002024,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,25980.48,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004429,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,67812.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002372,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,243927.29,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004136,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,210314.38,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003816,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,54567.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004648,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,18351.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000077,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,21728.36,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002609,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,373573.15,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004932,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,17057.48,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002795,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,46638.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001427,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,40628.03,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001921,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,15570.47,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002410,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,20581.39,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000861,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,16464.97,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002721,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,29373.56,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002157,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,31769.63,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003830,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,15327.26,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000950,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,4340.71,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002748,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,222360.21,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002113,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,386348.55,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001867,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,24233.32,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003695,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,51092.68,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004484,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,30172.73,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004123,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,49021.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001431,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,23494.84,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001471,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,28417.0,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000964,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,69990.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003262,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,15582.58,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001214,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,18830.31,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000855,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,30924.0,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001114,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,243732.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000885,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,47224.61,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002901,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,20328.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002280,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,9975.91,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001108,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,18082.51,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001004,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,36936.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001263,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,40050.2,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002006,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,114584.9,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003852,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,54349.71,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000335,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,27347.79,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000274,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,76617.76,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003537,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,42991.66,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003793,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,22305.88,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004727,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,22907.79,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001928,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,16177.68,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001070,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,25882.49,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004388,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,93377.04,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003819,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,58698.85,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001191,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,134957.01,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004750,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,11223.23,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000647,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,93536.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000144,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,298667.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004061,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,30408.26,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003770,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,39152.2,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002973,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,72236.62,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000445,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,22665.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000133,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,94283.4,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003514,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,46067.43,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000328,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,261246.25,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_A_000987,BANK_A,kirana_merchant,0,durga_puja_surge_merchant,0.0,41701.5,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004936,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,19261.53,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001955,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,79707.67,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004755,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,65675.03,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001043,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,96705.59,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002758,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,31753.9,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001408,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,348258.14,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_D_003875,BANK_D,kirana_merchant,0,durga_puja_surge_merchant,0.0,43849.39,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002513,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,292576.62,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002102,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,11415.84,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_B_001629,BANK_B,kirana_merchant,0,durga_puja_surge_merchant,0.0,32452.45,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002143,BANK_C,kirana_merchant,0,durga_puja_surge_merchant,0.0,103984.02,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_E_004604,BANK_E,kirana_merchant,0,durga_puja_surge_merchant,0.0,35550.1,,Hard negative: Durga Puja 10x sales volume surge with genuine local repeat buyers.
+ACC_BANK_C_002851,BANK_C,student,0,student_fee_passthrough,0.0,2716.02,,Hard negative: Rapid pass-through (42.3s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_C_002893,BANK_C,student,0,student_fee_passthrough,0.0,2817.46,,Hard negative: Rapid pass-through (143.6s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001426,BANK_B,student,0,student_fee_passthrough,0.0,1725.26,,Hard negative: Rapid pass-through (165.1s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003367,BANK_D,student,0,student_fee_passthrough,0.0,3035.11,,Hard negative: Rapid pass-through (132.8s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_A_000357,BANK_A,student,0,student_fee_passthrough,0.0,3431.11,,Hard negative: Rapid pass-through (128.7s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001656,BANK_B,student,0,student_fee_passthrough,0.0,1164.09,,Hard negative: Rapid pass-through (46.0s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001622,BANK_B,student,0,student_fee_passthrough,0.0,3065.4,,Hard negative: Rapid pass-through (109.2s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003201,BANK_D,student,0,student_fee_passthrough,0.0,2112.86,,Hard negative: Rapid pass-through (66.9s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001380,BANK_B,student,0,student_fee_passthrough,0.0,7216.8,,Hard negative: Rapid pass-through (134.8s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_A_000230,BANK_A,student,0,student_fee_passthrough,0.0,2508.83,,Hard negative: Rapid pass-through (42.8s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003171,BANK_D,student,0,student_fee_passthrough,0.0,5645.0,,Hard negative: Rapid pass-through (138.4s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_E_004457,BANK_E,student,0,student_fee_passthrough,0.0,2052.67,,Hard negative: Rapid pass-through (135.8s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_C_002500,BANK_C,student,0,student_fee_passthrough,0.0,6242.43,,Hard negative: Rapid pass-through (78.7s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003922,BANK_D,student,0,student_fee_passthrough,0.0,2465.93,,Hard negative: Rapid pass-through (107.3s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_E_004513,BANK_E,student,0,student_fee_passthrough,0.0,6395.46,,Hard negative: Rapid pass-through (48.9s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_C_002385,BANK_C,student,0,student_fee_passthrough,0.0,4493.66,,Hard negative: Rapid pass-through (91.4s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003015,BANK_D,student,0,student_fee_passthrough,0.0,5390.26,,Hard negative: Rapid pass-through (129.6s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_C_002724,BANK_C,student,0,student_fee_passthrough,0.0,3320.23,,Hard negative: Rapid pass-through (101.1s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001360,BANK_B,student,0,student_fee_passthrough,0.0,2559.64,,Hard negative: Rapid pass-through (71.4s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_D_003967,BANK_D,student,0,student_fee_passthrough,0.0,1641.12,,Hard negative: Rapid pass-through (55.4s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_E_004496,BANK_E,student,0,student_fee_passthrough,0.0,1307.89,,Hard negative: Rapid pass-through (51.5s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_C_002897,BANK_C,student,0,student_fee_passthrough,0.0,5363.14,,Hard negative: Rapid pass-through (151.3s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_A_000558,BANK_A,student,0,student_fee_passthrough,0.0,1604.62,,Hard negative: Rapid pass-through (43.5s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_A_000201,BANK_A,student,0,student_fee_passthrough,0.0,3650.23,,Hard negative: Rapid pass-through (107.1s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001563,BANK_B,student,0,student_fee_passthrough,0.0,1826.31,,Hard negative: Rapid pass-through (84.0s) to university nodal account. Legitimate tuition payment.
+ACC_BANK_B_001247,BANK_B,retail,1,smurfing_fan_out_origin,350000.0,10011.56,SYN-SMURF-01,Origin node executing rapid smurfing fan-out dispersal.
+ACC_BANK_B_001913,BANK_B,retail,1,smurfing_fan_out_mule,20813.74,19659.21,SYN-SMURF-MULE-01,Smurfing recipient mule node.
+ACC_BANK_B_001039,BANK_B,retail,1,smurfing_fan_out_mule,20478.92,23481.66,SYN-SMURF-MULE-02,Smurfing recipient mule node.
+ACC_BANK_C_002841,BANK_C,retail,1,smurfing_fan_out_mule,22126.37,11878.53,SYN-SMURF-MULE-03,Smurfing recipient mule node.
+ACC_BANK_B_001311,BANK_B,retail,1,smurfing_fan_out_mule,23852.45,5848.84,SYN-SMURF-MULE-04,Smurfing recipient mule node.
+ACC_BANK_A_000356,BANK_A,retail,1,smurfing_fan_out_mule,23972.67,15725.12,SYN-SMURF-MULE-05,Smurfing recipient mule node.
+ACC_BANK_B_001325,BANK_B,retail,1,smurfing_fan_out_mule,18967.06,15679.96,SYN-SMURF-MULE-06,Smurfing recipient mule node.
+ACC_BANK_C_002472,BANK_C,retail,1,smurfing_fan_out_mule,22334.99,9864.89,SYN-SMURF-MULE-07,Smurfing recipient mule node.
+ACC_BANK_C_002857,BANK_C,retail,1,smurfing_fan_out_mule,18842.99,12801.12,SYN-SMURF-MULE-08,Smurfing recipient mule node.
+ACC_BANK_B_001195,BANK_B,retail,1,smurfing_fan_out_mule,22638.94,51722.88,SYN-SMURF-MULE-09,Smurfing recipient mule node.
+ACC_BANK_C_002679,BANK_C,retail,1,smurfing_fan_out_mule,23084.44,3860.72,SYN-SMURF-MULE-10,Smurfing recipient mule node.
+ACC_BANK_C_002837,BANK_C,retail,1,smurfing_fan_out_mule,19050.47,19693.25,SYN-SMURF-MULE-11,Smurfing recipient mule node.
+ACC_BANK_A_000150,BANK_A,retail,1,smurfing_fan_out_mule,23137.95,14912.19,SYN-SMURF-MULE-12,Smurfing recipient mule node.
+ACC_BANK_A_000684,BANK_A,retail,1,smurfing_fan_out_mule,20104.99,9274.96,SYN-SMURF-MULE-13,Smurfing recipient mule node.
+ACC_BANK_C_002289,BANK_C,retail,1,smurfing_fan_out_mule,18351.46,26362.67,SYN-SMURF-MULE-14,Smurfing recipient mule node.
+ACC_BANK_C_002951,BANK_C,retail,1,smurfing_fan_out_mule,21440.7,5891.27,SYN-SMURF-MULE-15,Smurfing recipient mule node.
+ACC_BANK_B_001352,BANK_B,retail,1,concentrator_feeder_mule,22729.2,19803.05,SYN-CONC-FEEDER-01,Feeder mule in fan-in concentrator ring.
+ACC_BANK_A_000837,BANK_A,retail,1,concentrator_feeder_mule,29228.19,10631.93,SYN-CONC-FEEDER-02,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001832,BANK_B,retail,1,concentrator_feeder_mule,23442.07,13907.55,SYN-CONC-FEEDER-03,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001750,BANK_B,retail,1,concentrator_feeder_mule,26859.93,24959.23,SYN-CONC-FEEDER-04,Feeder mule in fan-in concentrator ring.
+ACC_BANK_A_000879,BANK_A,retail,1,concentrator_feeder_mule,25659.33,12426.74,SYN-CONC-FEEDER-05,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001398,BANK_B,retail,1,concentrator_feeder_mule,20628.56,11757.54,SYN-CONC-FEEDER-06,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001714,BANK_B,retail,1,concentrator_feeder_mule,20337.75,12342.23,SYN-CONC-FEEDER-07,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001277,BANK_B,retail,1,concentrator_feeder_mule,26375.5,8779.51,SYN-CONC-FEEDER-08,Feeder mule in fan-in concentrator ring.
+ACC_BANK_A_000296,BANK_A,retail,1,concentrator_feeder_mule,22006.22,15116.75,SYN-CONC-FEEDER-09,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001706,BANK_B,retail,1,concentrator_feeder_mule,25184.01,50616.62,SYN-CONC-FEEDER-10,Feeder mule in fan-in concentrator ring.
+ACC_BANK_A_000319,BANK_A,retail,1,concentrator_feeder_mule,21507.94,26707.74,SYN-CONC-FEEDER-11,Feeder mule in fan-in concentrator ring.
+ACC_BANK_B_001580,BANK_B,retail,1,concentrator_feeder_mule,21299.12,17017.69,SYN-CONC-FEEDER-12,Feeder mule in fan-in concentrator ring.
+ACC_BANK_C_002547,BANK_C,retail,1,concentrator_master_mule,285257.82,10739.42,SYN-CONC-MASTER-01,Master concentrator mule aggregating multiple rapid fan-in credits.
+ACC_BANK_A_000900,BANK_A,retail,1,dormant_awakening_target,450000.0,4559.88,SYN-DORM-01,"Dormant account awakening: 90d baseline ~₹814/day suddenly receives ₹450,000."
+ACC_BANK_C_002849,BANK_C,retail,1,dormant_dispersal_mule,150000.0,23163.65,SYN-DORM-MULE-01-1,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_B_001964,BANK_B,retail,1,dormant_dispersal_mule,150000.0,11324.33,SYN-DORM-MULE-01-2,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_B_001370,BANK_B,retail,1,dormant_dispersal_mule,150000.0,26152.85,SYN-DORM-MULE-01-3,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_B_001916,BANK_B,retail,1,dormant_awakening_target,450000.0,1582.34,SYN-DORM-02,"Dormant account awakening: 90d baseline ~₹327/day suddenly receives ₹450,000."
+ACC_BANK_B_001910,BANK_B,retail,1,dormant_dispersal_mule,150000.0,18120.89,SYN-DORM-MULE-02-3,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_C_002169,BANK_C,retail,1,dormant_awakening_target,450000.0,7967.58,SYN-DORM-03,"Dormant account awakening: 90d baseline ~₹912/day suddenly receives ₹450,000."
+ACC_BANK_C_002326,BANK_C,retail,1,dormant_dispersal_mule,150000.0,19181.32,SYN-DORM-MULE-03-1,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_C_002427,BANK_C,nodal_whitelisted,1,dormant_dispersal_mule,150000.0,5685572.4,SYN-DORM-MULE-03-2,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000497,BANK_A,retail,1,dormant_awakening_target,450000.0,3707.14,SYN-DORM-04,"Dormant account awakening: 90d baseline ~₹660/day suddenly receives ₹450,000."
+ACC_BANK_C_002456,BANK_C,retail,1,dormant_dispersal_mule,150000.0,14224.41,SYN-DORM-MULE-04-1,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_B_001088,BANK_B,retail,1,dormant_dispersal_mule,150000.0,4534.46,SYN-DORM-MULE-04-2,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000509,BANK_A,retail,1,dormant_dispersal_mule,150000.0,9029.93,SYN-DORM-MULE-04-3,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000594,BANK_A,retail,1,dormant_awakening_target,450000.0,4203.9,SYN-DORM-05,"Dormant account awakening: 90d baseline ~₹782/day suddenly receives ₹450,000."
+ACC_BANK_B_001937,BANK_B,retail,1,dormant_dispersal_mule,150000.0,13051.96,SYN-DORM-MULE-05-1,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000939,BANK_A,retail,1,dormant_dispersal_mule,150000.0,25801.88,SYN-DORM-MULE-05-2,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_A_000553,BANK_A,retail,1,dormant_dispersal_mule,150000.0,16440.33,SYN-DORM-MULE-05-3,Downstream cash-out mule receiving split from awakened dormant node.
+ACC_BANK_B_001354,BANK_B,retail,1,unjoined_leakage_mule,250000.0,17100.09,SYN-LEAK-E-01,Multi-hop layering exiting to non-participating bank BANK_E.
+ACC_BANK_C_002779,BANK_C,retail,1,unjoined_leakage_mule,250000.0,18505.95,SYN-LEAK-E-02,Multi-hop layering exiting to non-participating bank BANK_E.
+ACC_BANK_E_004186,BANK_E,retail,1,unjoined_leakage_mule,250000.0,17483.87,SYN-LEAK-E-03,Multi-hop layering exiting to non-participating bank BANK_E.

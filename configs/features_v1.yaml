@@ -1,0 +1,33 @@
+# CHAKRA-DPI Feature Engineering & Risk Thresholds (Version 1)
+# Governed by docs/PRD.md & docs/EXECUTION_GUIDE.md
+
+temporal_windows:
+  rolling_window_sec: 3600       # 1-hour window for graph calculation
+  burst_window_sec: 600          # 10-minute burst window
+  velocity_decay_lambda: 0.00385 # ln(2) / 180 seconds half-life
+
+statutory:
+  rbi_threshold_inr: 1000        # Minimum suspected transaction limit (INR strictly per ADR-001)
+  cold_start_days: 14            # Fallback to cohort statistics if account age < 14 days
+
+risk_bands:
+  priority_threshold: 0.85
+  additional_review_threshold: 0.35
+  # Set to UNCALIBRATED per ADR-003. Changes to CALIBRATED_UNVERIFIED_ADVISORY_ONLY after Phase 10 / Phase 08 ECE calibration.
+  status: "UNCALIBRATED"
+
+# Algorithmic fairness: protected demographic attributes blocklist (PRD Section 2.2 / NFR)
+protected_attributes_blocklist:
+  - gender
+  - religion
+  - caste
+  - language
+  - location
+
+# Composite merchant protection weights (PRD Section 5.1, Eq 4)
+# M_local = w_a * R_repeat + w_b * (1 - S_sweep) + w_c * T_age_tier
+# NOTE: These are initial heuristic placeholder weights; calibrated empirically in Phase 16.
+merchant_protection_weights:
+  w_a: 0.4  # Repeat local customer ratio weight (placeholder)
+  w_b: 0.4  # Non-sweep retention weight (placeholder)
+  w_c: 0.2  # Account age tier stability weight (placeholder)

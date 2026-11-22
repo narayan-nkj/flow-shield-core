@@ -1,0 +1,86 @@
+# CHAKRA-DPI Simulation Configuration (Version 1)
+# Governed by docs/PRD.md & docs/EXECUTION_GUIDE.md
+
+seed: 42
+
+simulation:
+  time_horizon_days: 7
+  # Default scale for local development, tests, and interactive UI
+  total_accounts: 5000
+  # Target scale for Phase 19 CPU stress and latency benchmarking (ADR-005)
+  benchmark_accounts: 50000
+  participating_banks:
+    - BANK_A
+    - BANK_B
+    - BANK_C
+  unjoined_banks:
+    - BANK_D
+    - BANK_E
+  account_distribution:
+    retail: 0.85
+    kirana_merchant: 0.10
+    student: 0.04
+    nodal_whitelisted: 0.01
+
+scenarios:
+  # 8. Warm-up pre-period: Populates baseline rolling windows before attacks
+  warm_up:
+    enabled: true
+    duration_days: 3
+    volume_factor: 0.5
+
+  # 1. Konnagar Scam: 5-hop rapid layering leaking at unjoined BANK_D
+  konnagar_scam:
+    enabled: true
+    disputed_amount_inr: 500000
+    hops: 5
+    leakage_bank: BANK_D
+    case_id: "SYN-0042"
+    lien_demo:
+      unrestricted_balance_inr: 85000
+      disputed_lien_inr: 2500
+    hold_time_sec_min: 45
+    hold_time_sec_max: 120
+
+  # 2. Durga Puja Merchant Surge: Hard Negative (10x volume surge, 48 hours)
+  durga_puja_surge:
+    enabled: true
+    volume_multiplier: 10.0
+    duration_hours: 48
+    participating_merchants_fraction: 0.85
+
+  # 3. Student Fee Pass-Through: Hard Negative (Rapid in-and-out tuition payments)
+  student_fee_passthrough:
+    enabled: true
+    amount_range_inr: [25000, 75000]
+    hold_time_max_sec: 180
+    count: 25
+
+  # 4. Smurfing / Fan-Out: High recipient entropy, micro-layering
+  smurfing_fan_out:
+    enabled: true
+    source_amount_inr: 350000
+    mule_count: 15
+    amount_per_mule_range: [18000, 24000]
+    burst_window_sec: 600
+
+  # 5. Concentrator / Fan-In Ring: Dispersed smurfed nodes feeding central mule
+  concentrator_fan_in:
+    enabled: true
+    mule_count: 12
+    amount_per_mule_range: [20000, 30000]
+    burst_window_sec: 900
+
+  # 6. Dormant Account Awakening: Long dormant node suddenly spiking (Z_dormancy > 5.0)
+  dormant_awakening:
+    enabled: true
+    target_count: 5
+    inflow_amount_inr: 450000
+    disbursement_hops: 3
+
+  # 7. Unjoined Bank Leakage: Multi-hop velocity chain exiting to non-participating BANK_E
+  unjoined_leakage:
+    enabled: true
+    chain_hops: 4
+    leakage_bank: BANK_E
+    amount_inr: 250000
