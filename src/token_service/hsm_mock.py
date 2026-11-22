@@ -194,19 +194,20 @@ class MockHSMService:
         conn = self._get_connection()
         cur = conn.cursor()
 
-        # Update currently active epochs: valid_to becomes now, but overlap_until remains 24h into future
+        # Update currently active epochs: valid_to becomes now, sliding overlap_until becomes now + 24h (CR02-C)
         cur.execute("""
             SELECT epoch_id, valid_from FROM epoch_keys
             WHERE is_revoked = 0 AND valid_from <= ? AND valid_to > ?;
         """, (now.isoformat(), now.isoformat()))
         active_epochs = cur.fetchall()
 
+        sliding_overlap = now + datetime.timedelta(hours=24)
         for ep in active_epochs:
             cur.execute("""
                 UPDATE epoch_keys
-                SET valid_to = ?
+                SET valid_to = ?, overlap_until = ?
                 WHERE epoch_id = ?;
-            """, (now.isoformat(), ep["epoch_id"]))
+            """, (now.isoformat(), sliding_overlap.isoformat(), ep["epoch_id"]))
 
         conn.commit()
         conn.close()

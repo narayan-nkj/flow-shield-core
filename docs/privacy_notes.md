@@ -67,6 +67,7 @@ In Phase 07, CHAKRA-DPI introduces a comparative compute lab benchmarking pseudo
 * **Cryptographic PSI Approach:**  
   * *Pros:* Cryptographically zero metadata leakage; institutions learn strictly the intersection of flagged accounts.
   * *Trade-Off:* Exponentially higher computational complexity and network bandwidth overhead (orders of magnitude slower than CPU-first requirements).
+  * *Educational Cryptographic Notice:* The DH-PSI benchmark lab utilizes RFC 2409 Oakley Group 2 (`RFC2409_MODP_1024_SAFE_PRIME`, 1024-bit MODP safe prime). 1024-bit Diffie-Hellman is below modern cryptographic security recommendations (which mandate $\ge 2048$-bit MODP or Curve25519 ECC per NIST SP 800-57) and is implemented strictly for an **EDUCATIONAL benchmark** to demonstrate algorithmic complexity and communication rounds without CPU throttling. Production deployment of multi-party cryptographic intersection requires modern curve-based PSI protocols.
 
 ---
 

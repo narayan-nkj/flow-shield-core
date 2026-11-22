@@ -130,9 +130,9 @@ def test_injected_counts_match_config(scenario_output):
     assert len(dorm_in) == 5
     assert len(dorm_out) == 15
 
-    # Unjoined leakage: 3 chain hops ending at BANK_E
+    # Unjoined leakage: 4 chain hops ending at BANK_E (CR02-C)
     leak_txs = [t for t in all_txns if "unjoined_leakage" in t.scenario_label]
-    assert len(leak_txs) == 3
+    assert len(leak_txs) == 4
 
 
 def test_scenario_determinism(tmp_path_factory):

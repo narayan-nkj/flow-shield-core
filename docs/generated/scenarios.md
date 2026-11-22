@@ -1,7 +1,7 @@
 # CHAKRA-DPI Scenario Catalogue & Evaluation Archetypes
 
 **Governing Document:** `docs/PRD.md` Section 1.2 & `configs/simulation_v1.yaml`  
-**Last Updated:** 2026-11-22T12:54:34.769985+00:00  
+**Last Updated:** 2026-11-22T14:00:02.137985+00:00  
 **Random Seed:** `777`  
 
 This catalogue details all simulated behavioral scenarios injected into the CHAKRA-DPI multi-bank pipeline, distinguishing true fraud rings from critical hard negatives.

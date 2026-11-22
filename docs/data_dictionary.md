@@ -222,9 +222,9 @@ Account-level ground-truth annotations across normal users, fraud rings, and har
 | `bank_id` | `TEXT` | `NOT NULL` | Bank holding the account (`BANK_A` ... `BANK_E`). |
 | `account_type` | `TEXT` | `NOT NULL` | `retail`, `kirana_merchant`, `student`, `nodal_whitelisted`. |
 | `is_mule` | `INTEGER` | `0 or 1` | Ground-truth binary flag: `1` for fraudulent mule; `0` for benign / hard negative. |
-| `scenario_label` | `TEXT` | `NOT NULL` | Archetype label (e.g., `konnagar_scam_mule_hop_2`, `durga_puja_surge_merchant`, `student_fee_passthrough`). |
-| `disputed_lien_inr`| `REAL` | `NOT NULL` | Disputed amount attributable to this account (e.g. ₹2,500 for Case SYN-0042). |
-| `unrestricted_balance_inr` | `REAL` | `NOT NULL` | Genuine funds eligible for unrestricted operations (e.g. ₹85,000 for Case SYN-0042). |
+| `scenario_label` | `TEXT` | `NOT NULL` | Archetype label (e.g., `konnagar_scam_mule_hop_2`, `konnagar_scam_innocent_kirana`, `durga_puja_surge_merchant`, `student_fee_passthrough`). |
+| `disputed_lien_inr`| `REAL` | `NOT NULL` | Disputed amount attributable to this account (e.g. ₹2,500 for innocent kirana proportionality demo; ₹500,000 for scam mules). |
+| `unrestricted_balance_inr` | `REAL` | `NOT NULL` | Genuine funds eligible for unrestricted operations (e.g. ₹85,000 for innocent kirana proportionality demo). |
 | `case_id` | `TEXT` | `NULLABLE` | Case identifier for UI reproduction (e.g. `SYN-0042`). |
 | `notes` | `TEXT` | `NULLABLE` | Analytical rationale documenting why an entity is a fraud mule or hard negative. |
 

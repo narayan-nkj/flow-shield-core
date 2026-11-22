@@ -28,9 +28,15 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 
 import numpy as np
 
-# Standard 512-bit safe prime for fast educational DH modular arithmetic
-# (RFC 3526 1536-bit MODP prime truncated for benchmark simulation efficiency)
-SAFE_PRIME_512 = int(
+# RFC 2409 Second Oakley Group (1024-bit MODP Safe Prime, generator g = 2).
+# Modulus p = 2^1024 - 2^960 - 1 + 2^64 * { [2^894 pi] + 129093 }
+#
+# SECURITY NOTICE:
+# 1024-bit Diffie-Hellman groups are below modern cryptographic recommendations (minimum 2048-bit
+# per NIST SP 800-57, or curve-based ECC such as Curve25519/Ed25519).
+# This constant is utilized STRICTLY for an EDUCATIONAL simulation and comparative lab benchmark
+# to demonstrate algorithmic overhead and communication rounds without excessive CPU throttling.
+RFC2409_MODP_1024_SAFE_PRIME = int(
     "FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"
     "29024E088A67CC74020BBEA63B139B22514A08798E3404DD"
     "EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"
@@ -38,9 +44,11 @@ SAFE_PRIME_512 = int(
     "EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE65381"
     "FFFFFFFFFFFFFFFF", 16
 )
+# Backwards compatibility alias
+SAFE_PRIME_512 = RFC2409_MODP_1024_SAFE_PRIME
 
 
-def hash_to_group(element: str, prime: int = SAFE_PRIME_512) -> int:
+def hash_to_group(element: str, prime: int = RFC2409_MODP_1024_SAFE_PRIME) -> int:
     """Hash an arbitrary identifier string into a group element modulo p."""
     digest = hashlib.sha256(element.encode("utf-8")).digest()
     num = int.from_bytes(digest, "big")
@@ -59,7 +67,7 @@ class EducationalDHPSI:
        Since H(v)^(k_A * k_B) == H(v)^(k_B * k_A), matching hashes identify intersection.
     """
 
-    def __init__(self, prime: int = SAFE_PRIME_512):
+    def __init__(self, prime: int = RFC2409_MODP_1024_SAFE_PRIME):
         self.prime = prime
 
     def run_psi(

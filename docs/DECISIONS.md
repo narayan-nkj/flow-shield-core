@@ -162,6 +162,47 @@
 
 ---
 
+### ADR-009: P1 Scenario Archetypes & Cryptographic Benchmark Hardening (CR02-C)
+* **Status:** ACCEPTED (Implemented per CR02-C)
+* **Context & Issues Resolved:**
+  1. **Konnagar Scam Innocent Kirana Branch (`src/simulator/scenarios.py`):**
+     * *Bug:* The proportionality demo branch (innocent kirana receiving legitimate ₹2,500 payment from victim-side flow with ₹85,000 balance) was previously overloaded onto a fraudulent mule account (`is_mule = 1`).
+     * *Root Cause:* Absence of a discrete innocent recipient branch transaction and ground-truth negative label.
+     * *Fix:* Added transaction `TXN_SCAM_KNG_INNOCENT` paying configurable `innocent_branch_amount_inr` (default ₹2,500) to an innocent kirana merchant account, labeled negative (`is_mule = 0`) with ₹85,000 unrestricted balance and ₹2,500 disputed lien.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_konnagar_innocent_kirana_branch`.
+  2. **Unjoined Leakage Hop Count (`src/simulator/scenarios.py`):**
+     * *Bug:* `inject_unjoined_leakage` previously produced 3 transactions across 4 accounts despite configuration requesting `chain_hops: 4`.
+     * *Root Cause:* Node sequence had 4 accounts, producing `N-1 = 3` hops.
+     * *Fix:* Expanded account sequence to 5 accounts (`seq_banks = ["BANK_A", "BANK_B", "BANK_C", "BANK_A", leakage_bank]`), generating exactly 4 hops ending at non-participating bank (`BANK_E` or `BANK_D`).
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_unjoined_leakage_hop_count_and_exit`.
+  3. **Smurfing Fan-Out Inflow & Thresholds (`src/simulator/scenarios.py`):**
+     * *Bug:* Fan-out origin previously dispatched disbursements without a prior funding inflow, and all disbursements exceeded ₹1,000.
+     * *Root Cause:* Disbursements were generated ex nihilo; uniform amount distribution was hardcoded to [18000, 24000].
+     * *Fix:* Injected initial funding inflow (`TXN_SMURF_FUND_DEP`) into origin before disbursements; partitioned disbursements into sub-threshold amounts (< ₹1,000) and major amounts (>= ₹1,000), strictly bounded by the funding inflow.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_smurfing_fan_out_inflow_before_outflow_and_thresholds`.
+  4. **Concentrator Fan-In Rapid Onward Outflow (`src/simulator/scenarios.py`):**
+     * *Bug:* Master concentrator mule collected fan-in funds but never swept them onward, failing to model a pass-through laundering ring.
+     * *Root Cause:* Absence of an outward sweep transaction after fan-in aggregation.
+     * *Fix:* Generated rapid onward sweep transaction (`TXN_CONC_SWEEP_OUT`) from master mule to an exit node shortly after the latest fan-in credit, bounded by total funneled inflow.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_concentrator_fan_in_rapid_onward_outflow`.
+  5. **Durga Puja Surge Balance Conservation (`src/simulator/scenarios.py`):**
+     * *Bug:* Festival purchases were generated without checking customer balances, creating money out of nothing and risking negative balances.
+     * *Root Cause:* Customer balances were not tracked or debited during festival surge.
+     * *Fix:* Enforced debit-credit balance updates on customer purchases with pre-festival customer liquidity verification, ensuring no negative balance and full balance conservation.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_durga_puja_volume_balance_and_temporal_spike`.
+  6. **Mock HSM Key Rotation Sliding Overlap Window (`src/token_service/hsm_mock.py`):**
+     * *Bug:* `rotate()` did not recalculate the active epoch's `overlap_until`, causing the overlap window to remain tethered to the original scheduled creation expiry rather than a sliding 24-hour window from rotation.
+     * *Root Cause:* `rotate()` only updated `valid_to = now` without updating `overlap_until = now + 24h`.
+     * *Fix:* `rotate()` updates `valid_to = now` and `overlap_until = now + 24h` on all active epochs. Revoked epochs remain immediately blocked (`RevokedEpochError`) even during overlap.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_rotate_overlap_and_revocation`.
+  7. **RFC 2409 Oakley Group 2 Constant Renaming & Educational Scope (`src/token_service/psi_benchmark.py`):**
+     * *Bug:* Constant `SAFE_PRIME_512` was misnamed and miscommented as a 512-bit prime truncated from RFC 3526.
+     * *Root Cause:* Hex value is 256 hex characters (1024 bits), matching character-for-character RFC 2409 Section 6.2 (Second Oakley Group / Oakley Group 2 safe prime).
+     * *Fix:* Renamed constant to `RFC2409_MODP_1024_SAFE_PRIME` (with backwards compatibility alias `SAFE_PRIME_512`), verified oddity and Miller-Rabin primality for $p$ and $(p-1)/2$. Added clear security notice in code and `docs/privacy_notes.md` that 1024-bit DH is below modern standards and used strictly for educational benchmarking.
+     * *Test Name:* `tests/test_cr02c_regressions.py::test_rfc2409_modp_1024_safe_prime_properties_and_psi`.
+
+---
+
 ## 3. ADR Template for Future Additions
 
 ```markdown

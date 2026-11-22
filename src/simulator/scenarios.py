@@ -170,6 +170,10 @@ class ScenarioEngine:
         # 1. Select origin victim at a participating bank (BANK_A)
         victim = [a for a in bank_accounts["BANK_A"] if a.account_type == "retail"][0]
 
+        # Innocent Kirana branch: legitimate small local grocery recipient (CR02-C)
+        innocent_amt = float(cfg.get("innocent_branch_amount_inr", lien_demo.get("disputed_lien_inr", 2500.0)))
+        innocent_kirana = [a for a in bank_accounts["BANK_A"] if a.account_type == "kirana_merchant"][0]
+
         # 2. Select 4 intermediate mules across participating banks, plus 1 exit mule at leakage_bank
         mules: List[SyntheticAccount] = []
         hop_banks = ["BANK_B", "BANK_C", "BANK_A", "BANK_B"]
@@ -188,6 +192,34 @@ class ScenarioEngine:
         # Start attack on Day 3 at 14:15 UTC
         curr_ts = self.base_start + datetime.timedelta(days=3, hours=14, minutes=15)
         current_sender = victim
+
+        # Add innocent kirana branch transaction from victim-side flow
+        t_innocent = curr_ts - datetime.timedelta(minutes=20)
+        tx_innocent = SyntheticTransaction(
+            txn_id="TXN_SCAM_KNG_INNOCENT",
+            src_account_id=victim.account_id,
+            dst_account_id=innocent_kirana.account_id,
+            amount_inr=innocent_amt,
+            channel="UPI",
+            timestamp=t_innocent.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            scenario_label="innocent_kirana_victim_payment",
+            sending_bank=victim.bank_id,
+            receiving_bank=innocent_kirana.bank_id
+        )
+        txns.append(tx_innocent)
+
+        # Label innocent kirana as negative (is_mule = 0) with proportionality demo values
+        labels[innocent_kirana.account_id] = AccountLabel(
+            account_id=innocent_kirana.account_id,
+            bank_id=innocent_kirana.bank_id,
+            account_type=innocent_kirana.account_type,
+            is_mule=0,  # INNOCENT / NEGATIVE
+            scenario_label="konnagar_scam_innocent_kirana",
+            disputed_lien_inr=innocent_amt,
+            unrestricted_balance_inr=float(lien_demo.get("unrestricted_balance_inr", 85000.0)),
+            case_id="SYN-0042-INNOCENT",
+            notes="Innocent local kirana merchant receiving legitimate ₹2,500 payment from victim-side flow; demonstrates proportionate partial lien (₹2,500 lien on ₹85,000 balance)."
+        )
 
         for hop_idx, next_receiver in enumerate(mules, 1):
             tx_id = f"TXN_SCAM_KNG_{hop_idx:02d}"
@@ -216,10 +248,9 @@ class ScenarioEngine:
 
         # Assign ground-truth labels to mules
         for idx, m in enumerate(mules, 1):
-            # Target token for lien-math demo: 2nd mule in chain (or configured)
             is_demo_target = (idx == 2)
-            unrestricted = lien_demo["unrestricted_balance_inr"] if is_demo_target else m.balance_inr
-            lien_amt = lien_demo["disputed_lien_inr"] if is_demo_target else disputed_amt
+            unrestricted = float(lien_demo["unrestricted_balance_inr"]) if is_demo_target else m.balance_inr
+            lien_amt = float(lien_demo["disputed_lien_inr"]) if is_demo_target else disputed_amt
 
             labels[m.account_id] = AccountLabel(
                 account_id=m.account_id,
@@ -234,11 +265,13 @@ class ScenarioEngine:
             )
 
         metrics = {
-            "hops": len(txns),
+            "hops": len([t for t in txns if "konnagar_scam" in t.scenario_label]),
             "disputed_amount_inr": disputed_amt,
             "leakage_bank": leakage_bank,
             "mean_hold_time_sec": float(np.mean(hold_times)),
-            "case_id": case_id
+            "case_id": case_id,
+            "innocent_branch_amount_inr": innocent_amt,
+            "innocent_kirana_account_id": innocent_kirana.account_id
         }
         return txns, labels, metrics
 
@@ -284,8 +317,17 @@ class ScenarioEngine:
             surge_count = int(self.rng.randint(120, 250) * (mult / 10.0))
             for _ in range(surge_count):
                 cust = self.rng.choice(retail_customers)
-                amount = float(self.np_rng.lognormal(mean=6.2, sigma=0.7))  # ~₹500 - ₹3,000 festival purchases
-                amount = max(50.0, min(amount, 12000.0))
+                desired_amt = float(self.np_rng.lognormal(mean=6.2, sigma=0.7))  # ~₹500 - ₹3,000 festival purchases
+                desired_amt = max(50.0, min(desired_amt, 12000.0))
+                # Ensure customer balance conservation (no money created from nothing, never negative)
+                available = max(0.0, cust.balance_inr - 50.0)
+                if available < 50.0:
+                    # Provide pre-festival liquidity advance to ensure customer funds purchase
+                    cust.balance_inr = round(cust.balance_inr + 25000.0, 2)
+                    available = cust.balance_inr - 50.0
+                amount = round(min(desired_amt, available), 2)
+                cust.balance_inr = round(cust.balance_inr - amount, 2)
+                m.balance_inr = round(m.balance_inr + amount, 2)
 
                 offset_sec = self.rng.randint(0, duration_hrs * 3600)
                 ts = festival_start + datetime.timedelta(seconds=offset_sec)
@@ -294,7 +336,7 @@ class ScenarioEngine:
                     txn_id=f"TXN_PUJA_{tx_counter:07d}",
                     src_account_id=cust.account_id,
                     dst_account_id=m.account_id,
-                    amount_inr=round(amount, 2),
+                    amount_inr=amount,
                     channel="UPI",
                     timestamp=ts.strftime("%Y-%m-%dT%H:%M:%SZ"),
                     scenario_label="durga_puja_merchant_surge",
@@ -404,7 +446,6 @@ class ScenarioEngine:
         cfg = self.scenarios_cfg.get("smurfing_fan_out", {})
         total_src = float(cfg.get("source_amount_inr", 350000))
         mule_count = int(cfg.get("mule_count", 15))
-        amt_range = cfg.get("amount_per_mule_range", [18000, 24000])
         burst_sec = int(cfg.get("burst_window_sec", 600))
 
         # Origin node at BANK_B
@@ -417,6 +458,23 @@ class ScenarioEngine:
         labels: Dict[str, AccountLabel] = {}
         t_start = self.base_start + datetime.timedelta(days=2, hours=11, minutes=30)
 
+        # 1. Origin must RECEIVE the large inflow BEFORE splitting (CR02-C)
+        external_funder = [a for a in bank_accounts["BANK_D"] if a.account_type == "retail"][0]
+        t_inflow = t_start - datetime.timedelta(minutes=10)
+        tx_inflow = SyntheticTransaction(
+            txn_id="TXN_SMURF_FUND_DEP",
+            src_account_id=external_funder.account_id,
+            dst_account_id=origin.account_id,
+            amount_inr=total_src,
+            channel="RTGS",
+            timestamp=t_inflow.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            scenario_label="smurfing_fan_out_funding_inflow",
+            sending_bank=external_funder.bank_id,
+            receiving_bank=origin.bank_id
+        )
+        txns.append(tx_inflow)
+        origin.balance_inr = round(origin.balance_inr + total_src, 2)
+
         labels[origin.account_id] = AccountLabel(
             account_id=origin.account_id,
             bank_id=origin.bank_id,
@@ -426,13 +484,26 @@ class ScenarioEngine:
             disputed_lien_inr=total_src,
             unrestricted_balance_inr=origin.balance_inr,
             case_id="SYN-SMURF-01",
-            notes="Origin node executing rapid smurfing fan-out dispersal."
+            notes="Origin node executing rapid smurfing fan-out dispersal after receiving funding inflow."
         )
 
-        for idx, m in enumerate(mules, 1):
-            amt = round(float(self.rng.uniform(amt_range[0], amt_range[1])), 2)
-            offset = self.rng.randint(0, burst_sec)
+        # 2. Split inflow into sub-transfers (bounded by total_src):
+        # Must include amounts above and below statutory Rs 1,000 threshold (CR02-C)
+        sub_1k_amounts = [round(float(self.rng.uniform(350.0, 950.0)), 2) for _ in range(2)]
+        remaining_pool = total_src - sum(sub_1k_amounts)
+        num_major = len(mules) - len(sub_1k_amounts)
+
+        weights = [self.rng.uniform(0.8, 1.2) for _ in range(num_major)]
+        total_w = sum(weights)
+        target_major_pool = remaining_pool * 0.95
+        major_amounts = [round((w / total_w) * target_major_pool, 2) for w in weights]
+        disbursement_amounts = sub_1k_amounts + major_amounts
+
+        total_disbursed = 0.0
+        for idx, (m, amt) in enumerate(zip(mules, disbursement_amounts), 1):
+            offset = self.rng.randint(30, burst_sec)
             t_tx = t_start + datetime.timedelta(seconds=offset)
+            total_disbursed += amt
 
             tx = SyntheticTransaction(
                 txn_id=f"TXN_SMURF_OUT_{idx:03d}",
@@ -446,6 +517,8 @@ class ScenarioEngine:
                 receiving_bank=m.bank_id
             )
             txns.append(tx)
+            origin.balance_inr = round(origin.balance_inr - amt, 2)
+            m.balance_inr = round(m.balance_inr + amt, 2)
 
             labels[m.account_id] = AccountLabel(
                 account_id=m.account_id,
@@ -460,8 +533,11 @@ class ScenarioEngine:
             )
 
         metrics = {
+            "origin_account_id": origin.account_id,
+            "funding_inflow_inr": total_src,
             "mules_count": len(mules),
             "transactions_generated": len(txns),
+            "total_disbursed_inr": total_disbursed,
             "burst_window_sec": burst_sec
         }
         return txns, labels, metrics
@@ -503,6 +579,7 @@ class ScenarioEngine:
                 receiving_bank=master_mule.bank_id
             )
             txns.append(tx)
+            master_mule.balance_inr = round(master_mule.balance_inr + amt, 2)
 
             labels[f.account_id] = AccountLabel(
                 account_id=f.account_id,
@@ -516,6 +593,27 @@ class ScenarioEngine:
                 notes="Feeder mule in fan-in concentrator ring."
             )
 
+        # Onward rapid sweep outflow from master mule (pass-through ring) (CR02-C)
+        t_max_in = max(datetime.datetime.fromisoformat(t.timestamp.replace("Z", "+00:00")) for t in txns)
+        sweep_delay_sec = self.rng.randint(180, 480)  # 3-8 minutes after last credit
+        t_sweep = t_max_in + datetime.timedelta(seconds=sweep_delay_sec)
+        sweep_amt = round(total_funneled * self.rng.uniform(0.92, 0.98), 2)
+        exit_sink = self.rng.choice([a for a in bank_accounts["BANK_D"] if a.account_type == "retail"])
+
+        tx_sweep = SyntheticTransaction(
+            txn_id="TXN_CONC_SWEEP_OUT",
+            src_account_id=master_mule.account_id,
+            dst_account_id=exit_sink.account_id,
+            amount_inr=sweep_amt,
+            channel="IMPS" if sweep_amt <= 200000.0 else "RTGS",
+            timestamp=t_sweep.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            scenario_label="concentrator_onward_sweep_outflow",
+            sending_bank=master_mule.bank_id,
+            receiving_bank=exit_sink.bank_id
+        )
+        txns.append(tx_sweep)
+        master_mule.balance_inr = round(master_mule.balance_inr - sweep_amt, 2)
+
         labels[master_mule.account_id] = AccountLabel(
             account_id=master_mule.account_id,
             bank_id=master_mule.bank_id,
@@ -525,12 +623,14 @@ class ScenarioEngine:
             disputed_lien_inr=total_funneled,
             unrestricted_balance_inr=master_mule.balance_inr,
             case_id="SYN-CONC-MASTER-01",
-            notes="Master concentrator mule aggregating multiple rapid fan-in credits."
+            notes="Master concentrator mule aggregating multiple rapid fan-in credits and sweeping onward."
         )
 
         metrics = {
+            "master_mule_account_id": master_mule.account_id,
             "feeders_count": len(feeders),
             "total_funneled_inr": total_funneled,
+            "onward_sweep_amount_inr": sweep_amt,
             "burst_window_sec": burst_sec
         }
         return txns, labels, metrics
@@ -635,11 +735,12 @@ class ScenarioEngine:
         leakage_bank = normalize_bank_id(cfg.get("leakage_bank", "BANK_E"))
         amount = float(cfg.get("amount_inr", 250000))
 
-        # Hop sequence: BANK_A -> BANK_B -> BANK_C -> BANK_E (unjoined)
-        seq_banks = ["BANK_A", "BANK_B", "BANK_C", leakage_bank][:hops]
+        # 4-hop chain: exactly 4 transactions across 5 nodes (CR02-C)
+        # Sequence: BANK_A -> BANK_B -> BANK_C -> BANK_A -> leakage_bank (BANK_E or BANK_D)
+        seq_banks = ["BANK_A", "BANK_B", "BANK_C", "BANK_A", leakage_bank][:hops + 1]
         chain_accounts: List[SyntheticAccount] = []
         for b_id in seq_banks:
-            acc = self.rng.choice([a for a in bank_accounts[b_id] if a.account_type == "retail"])
+            acc = self.rng.choice([a for a in bank_accounts[b_id] if a.account_type == "retail" and a not in chain_accounts])
             chain_accounts.append(acc)
 
         txns: List[SyntheticTransaction] = []
