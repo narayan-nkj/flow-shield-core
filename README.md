@@ -10,7 +10,7 @@
 ## 1. Quick Start & Virtual Environment Setup
 
 ### 1.1 Prerequisites
-* Python 3.11+
+* Python 3.12 (standard) or Python 3.11+
 * Standard multi-core CPU (No GPU required)
 
 ### 1.2 Virtual Environment Initialization
@@ -18,20 +18,16 @@
 # 1. Clone repository and navigate to root
 cd CHAKRA-DPI
 
-# 2. Create Python virtual environment
-python3 -m venv .venv
+# 2. Setup virtual environment and dependencies (Python 3.12)
+make setup
 
-# 3. Activate virtual environment
-# Linux / macOS:
+# Or manually:
+python3.12 -m venv .venv
 source .venv/bin/activate
-# Windows (PowerShell):
-# .\.venv\Scripts\Activate.ps1
-
-# 4. Install locked dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# 5. Initialize the 4 physically isolated SQLite databases
+# 3. Initialize the 4 physically isolated SQLite databases
 make init-db
 # Or directly:
 python3 src/init_dbs.py
@@ -42,16 +38,17 @@ python3 src/init_dbs.py
 * `make init-db` : Instantiate all 4 SQLite databases
 * `make init-db-reset` : Delete and recreate all SQLite databases
 * `make test` : Execute automated pytest suite
+* `make check-links` : Verify markdown relative links across documentation
 * `make run-api` : Launch Central Risk Relay FastAPI service (port 8000)
 * `make run-ui` : Launch Streamlit Nodal Officer Review Dashboard (port 8501)
 * `make eval` : Execute 4-Pillar Evaluation Suite
+* `make clean` : Remove caches, temporary files, and pytest artifacts
 
 ---
 
 ## 2. Architecture & Documentation
-* [`CLAUDE.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/CLAUDE.md): System operating standards & precedence rules.
-* [`docs/PRD.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/docs/PRD.md): Technical requirements and system architecture (WHAT & WHY).
-* [`docs/EXECUTION_GUIDE.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/docs/EXECUTION_GUIDE.md): 30-Day Master Sprint Plan (WHEN & HOW).
-* [`docs/PROGRESS.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/docs/PROGRESS.md): Master Phase and Day progress tracker.
-* [`docs/DECISIONS.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/docs/DECISIONS.md): Architecture Decision Records (ADR) and conflict log.
-* [`docs/data_dictionary.md`](file:///Users/narayanjha/Documents/Git-Projects/SFIC/CHAKRA-DPI/docs/data_dictionary.md): Comprehensive schema & privacy boundary matrix.
+* [`docs/PRD.md`](docs/PRD.md): Technical requirements and system architecture (Single Source of Truth; WHAT & WHY).
+* [`docs/PROGRESS.md`](docs/PROGRESS.md): Master Phase and milestone progress tracker (Sequencing & Roadmap).
+* [`docs/DECISIONS.md`](docs/DECISIONS.md): Architecture Decision Records (ADR) and conflict log.
+* [`docs/data_dictionary.md`](docs/data_dictionary.md): Comprehensive schema & privacy boundary matrix.
+* [`CLAUDE.md`](CLAUDE.md): Local project guidelines and operating standards (local only).

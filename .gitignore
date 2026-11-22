@@ -46,10 +46,23 @@ data/kms/*.db
 data/central/*.db
 data/audit/*.db
 
+# Ground-truth labels (strictly outside central DBs & git)
+data/ground_truth/
+data/ground_truth/*.csv
+
+# Private defense, panel & presentation materials
+docs/*.pdf
+docs/private/
+*.pdf
+
+# Agent instructions & IDE config (local only)
+CLAUDE.md
+AGENTS.md
+.cursorrules
+
 # Generated reports & models
 docs/generated/*.png
 docs/generated/*.html
-
 
 # macOS & Editor
 .DS_Store

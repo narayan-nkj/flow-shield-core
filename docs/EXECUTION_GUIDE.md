@@ -1,1 +1,0 @@
-chakra_dpi_detailed_execution_guide.md

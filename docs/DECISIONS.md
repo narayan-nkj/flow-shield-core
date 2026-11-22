@@ -10,10 +10,9 @@
 
 ## 1. Document Precedence Framework
 
-When discrepancies arise between project specifications:
-1. **Schemas, Formulas, Guardrails, and Requirements:** `docs/PRD.md` takes precedence.
-2. **Sequencing, Default Config Values, and Starter Code:** `docs/EXECUTION_GUIDE.md` takes precedence.
-3. **Mandatory Reporting:** All detected conflicts are documented here with proposed defaults and explicitly surfaced to the user. No conflict is ever silently resolved by an agent.
+* **Single Source of Truth:** `docs/PRD.md` is the single source of truth for schemas, formulas, guardrails, architecture, and requirements.
+* **Sequencing & Schedule:** Project sequencing and roadmap tracking are governed by `docs/PROGRESS.md`.
+* **Mandatory Reporting:** All architectural decisions and changes are documented here with rationales and surfaced to the user. No conflict or divergence is ever silently resolved by an agent.
 
 ---
 
@@ -115,6 +114,21 @@ When discrepancies arise between project specifications:
     2. Encoding must strictly be `UTF-8`.
     3. The genesis block `prev_hash` is initialized to 64 zeros:  
        `"0000000000000000000000000000000000000000000000000000000000000000"`.
+
+---
+
+### ADR-007: Repository Hygiene, Secret Untracking, Single Source of Truth & Python 3.12 Standard (CR02-A)
+* **Status:** ACCEPTED (Implemented per CR02-A)
+* **Context & Conflict:**
+  * Git repository hygiene required removing private defense PDFs, local agent instructions (`CLAUDE.md`, `AGENTS.md`, `.cursorrules`), and synthetic ground-truth labels from Git index and tracking while keeping them locally.
+  * `docs/EXECUTION_GUIDE.md` was removed to establish `docs/PRD.md` as the single authoritative source of truth, with project sequencing tracked via `docs/PROGRESS.md`.
+  * Python runtime was standardized on Python 3.12 (with support for 3.11+).
+* **Decisions Adopted:**
+  1. **Git Untracking:** Untracked `CLAUDE.md`, 3 defense PDFs (`CHAKRA-DPI_panel_checklist.pdf`, `CHAKRA-DPI-Material.pdf`, `CHAKRA-DPI.pdf`), and `data/ground_truth/*.csv`. Added to `.gitignore`.
+  2. **Ground Truth Regenerability:** Verified ground-truth labels are deterministically regenerable on demand from seed (`src/simulator/scenarios.py`).
+  3. **Single Source of Truth:** `docs/PRD.md` is the single source of truth for all schemas, formulas, guardrails, and requirements. Sequencing is tracked in `docs/PROGRESS.md`.
+  4. **Link Hygiene:** Added `scripts/check_links.py` to prevent broken relative links in markdown documentation.
+  5. **Runtime Standard:** Virtual environment recreated with Python 3.12.16; `.python-version` set to `3.12`; `pyproject.toml` specifies `requires-python = ">=3.11, <3.13"`.
 
 ---
 

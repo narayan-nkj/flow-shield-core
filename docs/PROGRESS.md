@@ -3,7 +3,7 @@
 **Project Name:** CHAKRA-DPI (Cross-Bank Fraud Velocity & Citizen Protection Infrastructure)  
 **Track:** Seva First Innovation Challenge (SFIC) 2026 – Eastern Region (Junior / Undergraduate)  
 **Application ID:** `SFIC-WB-3789`  
-**Master Plan Reference:** `docs/EXECUTION_GUIDE.md` (30-Day Execution Sprint)  
+**Master Plan Reference:** `docs/PRD.md` (Single Source of Truth; Sequencing tracked in `docs/PROGRESS.md`)  
 **Last Updated:** 2026-11-22  
 
 ---
@@ -27,6 +27,7 @@
 | **Phase 05** | Day 5 | Bank-local feature extractor ($Z_{\text{dormancy}}, M_{\text{local}}$) | `src/bank_local/vault.py`, `src/bank_local/local_features.py` | **COMPLETE** | 25/25 tests passed. BankVault physical isolation & LocalFeaturePayload fail-closed Pydantic whitelist verified. (2026-11-22) |
 | **Phase 06** | Day 6 | Mock HSM / Token Service (HMAC-SHA256, 24h key rotation) | `src/token_service/hsm_mock.py`, `docs/privacy_notes.md` | **COMPLETE** | 30/30 tests passed. Mandatory zero PII leak audit passed. 24h key rotation, rate limiting, and edge pipeline operational. (2026-11-22) |
 | **Phase 07** | Day 7 | PSI benchmark module for comparative compute cost analysis | `src/token_service/psi_benchmark.py`, `docs/generated/psi_vs_hmac.md` | **COMPLETE** | 34/34 tests passed. Empirical lab completed (1k..50k IDs). DH-PSI vs HMAC trade-offs documented with Plotly dataset. (2026-11-22) |
+| **CR02-A** | Refactor | Repository hygiene, security untracking, PRD single source of truth, Python 3.12 | `.gitignore`, `scripts/check_links.py`, `pyproject.toml`, `.python-version` | **COMPLETE** | Untracked CLAUDE.md, 3 presentation PDFs, ground truth CSVs. Removed EXECUTION_GUIDE.md. Rebuilt .venv with Python 3.12. (2026-11-22) |
 | **Phase 07B** | Day 10 | Phase 1 integration tests & comprehensive threat model | `tests/test_phase1.py`, `docs/threat_model.md` | NOT STARTED | Confirms zero PII egress & privacy boundary |
 | **Phase 08** | Days 8–9 | Temporal Graph Engine ($V_p$ velocity, $H_{\text{entropy}}$, 2-hop aggregation) | `src/risk_service/graph_engine.py` | NOT STARTED | NetworkX sliding-window multigraph |
 | **Phase 08A** | Day 11 | Chronological train/validation/test dataset splits | `src/risk_service/splits.py` | NOT STARTED | Leakage-free temporal data partitioning |

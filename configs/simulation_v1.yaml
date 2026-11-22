@@ -1,5 +1,5 @@
 # CHAKRA-DPI Simulation Configuration (Version 1)
-# Governed by docs/PRD.md & docs/EXECUTION_GUIDE.md
+# Governed by docs/PRD.md (Single Source of Truth) & docs/PROGRESS.md
 
 seed: 42
 

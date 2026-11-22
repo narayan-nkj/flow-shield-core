@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chakra-dpi"
+version = "0.1.0"
+description = "Cross-Bank Fraud Velocity & Citizen Protection Infrastructure"
+readme = "README.md"
+requires-python = ">=3.11, <3.13"
+dependencies = [
+    "numpy==2.2.3",
+    "pandas==2.2.3",
+    "networkx==3.4.2",
+    "scikit-learn==1.6.1",
+    "scipy==1.15.2",
+    "pyyaml==6.0.2",
+    "fastapi==0.115.8",
+    "uvicorn==0.34.0",
+    "pydantic==2.10.6",
+    "streamlit==1.42.1",
+    "plotly==6.0.0",
+    "pyvis==0.3.1",
+    "pytest==8.3.4",
+    "httpx==0.28.1",
+]

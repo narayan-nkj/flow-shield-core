@@ -1,5 +1,5 @@
 # CHAKRA-DPI Feature Engineering & Risk Thresholds (Version 1)
-# Governed by docs/PRD.md & docs/EXECUTION_GUIDE.md
+# Governed by docs/PRD.md (Single Source of Truth) & docs/PROGRESS.md
 
 temporal_windows:
   rolling_window_sec: 3600       # 1-hour window for graph calculation

@@ -213,21 +213,19 @@ def test_zero_pii_leakage_in_central_and_audit_stores():
             cur.execute(query)
             rows = cur.fetchall()
 
-            for row in rows:
-                for val in row:
-                    if val is None:
-                        continue
-                    val_str = str(val)
+            # Concatenate unique cell values for efficient O(N_accounts) string audit
+            unique_vals = {str(val) for row in rows for val in row if val is not None}
+            table_text = " \n ".join(unique_vals)
 
-                    # Check for raw account ID leaks
-                    for acc in raw_account_ids:
-                        assert acc not in val_str, (
-                            f"LEAK DETECTED: Raw account_id '{acc}' found in table '{tbl}' of {db_path}!"
-                        )
+            # Check for raw account ID leaks
+            for acc in raw_account_ids:
+                assert acc not in table_text, (
+                    f"LEAK DETECTED: Raw account_id '{acc}' found in table '{tbl}' of {db_path}!"
+                )
 
-                    # Check for synthetic customer name leaks
-                    for name in raw_synthetic_names:
-                        assert name not in val_str, (
-                            f"LEAK DETECTED: Customer name '{name}' found in table '{tbl}' of {db_path}!"
-                        )
+            # Check for synthetic customer name leaks
+            for name in raw_synthetic_names:
+                assert name not in table_text, (
+                    f"LEAK DETECTED: Customer name '{name}' found in table '{tbl}' of {db_path}!"
+                )
         conn.close()
